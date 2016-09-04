@@ -1,0 +1,22 @@
+ <!DOCTYPE html>
+ <html>
+ <head>
+ <title>All about sports</title>
+ <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+ <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+ </head>
+ <body>
+ <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
+ <div class="container">
+   <%= flash_messages %>
+   <%= render 'shared/header' %>
+   <%= render 'shared/navarea' %>
+   <% if params[:controller] == 'main' %>
+      <%= render 'shared/mainContent' %>
+    <% else %>
+      <%= yield %>
+    <% end %>
+ </div>
+  <%= render 'shared/footer' %>
+ </body>
+ </html>

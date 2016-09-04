@@ -1,0 +1,142 @@
+page = Nokogiri::HTML(open('https://en.wikipedia.org/wiki/Dahi_Handi'))
+page.at_css('.vevent+ p').text
+
+div#content.mw-body
+div#bobyContent.mw-body-content
+div#mw-content-text.mw-content-ltr
+table.infobox.vcard
+
+================================================================================================
+Sports --> 
+	
+	Categories 
+	Type
+	Country
+	Alphabate 
+
+Information -
+	About (Basic Information)
+	History -
+	
+	V Card -
+		First Played / Highest governing body/ / Players / National game? (Country) / Equipments / Scoring / Presence (Olympics)
+	
+	Rules and regulations	-
+
+	Played in what all countries - (multiple checkboxes)
+
+	Key players -
+		Erlier - 5-10
+		current - 
+
+	More images -
+
+	Recent info - (News)
+
+	What all tournaments - 
+
+================================================================================================
+
+
+1) FootBall -
+
+page = Nokogiri::HTML(open('https://en.wikipedia.org/wiki/Football'))
+# for multiple elements scrapeing 
+page.css('p:nth-child(4), p:nth-child(3)').text
+
+	basic history - p:nth-child(4), p:nth-child(3)
+
+================================================================================================
+
+2) Basketball
+
+	https://en.wikipedia.org/wiki/Basketball
+
+	* basic information - p:nth-child(7) , p:nth-child(6) , p:nth-child(5) , p:nth-child(4) , .vcard+ p
+
+	---- page.css(' .vcard').text
+	*Highest governing body - tr:nth-child(2) th	- 
+	*First Played - 
+	** Characteristics -
+		Contact
+		Team Members
+		Mixed gender
+		Type
+		Equipment
+		Venue
+	* Presence -
+		Olympic -
+
+	-----------------
+	* Playing_regulations -
+		p:nth-child(63) , p:nth-child(62) , p:nth-child(61) , p:nth-child(60) , p:nth-child(59)
+	* Equipment -
+		p:nth-child(71) , p:nth-child(70) , p:nth-child(69) , p:nth-child(67)
+	* Violations 
+		p:nth-child(78) , p:nth-child(77) , p:nth-child(76) , p:nth-child(75) , p:nth-child(74) , p:nth-child(73)
+	* Fouls -
+		p:nth-child(90) , p:nth-child(89) , p:nth-child(88) , p:nth-child(87) , p:nth-child(86) , p:nth-child(85) , p:nth-child(84) , p:nth-child(83) , p:nth-child(82)
+
+Most popular players of this game -		
+
+================================================================================================
+
+3) Cricket 
+
+	https://en.wikipedia.org/wiki/Cricket
+
+	* Basic information -
+		p:nth-child(8) , p:nth-child(7) , p:nth-child(6) , p:nth-child(5) , .vcard+ p 
+	* Summary Card -
+		---- page.css(' .vcard').text
+	Rules and Playing_regulations -
+		https://en.wikipedia.org/wiki/Laws_of_cricket
+
+		basic info - p:nth-child(1)
+		42 Laws -
+			p:nth-child(37) , h3:nth-child(36) , p:nth-child(56) , h3:nth-child(55) , p:nth-child(45) , h3:nth-child(44) , p:nth-child(61) , h3:nth-child(60) , p:nth-child(76) , h3:nth-child(75) , h3:nth-child(72) , p:nth-child(73) , table~ p+ p , table+ p , h3:nth-child(20) , p:nth-child(19) , p:nth-child(18)
+
+		* Equipment -
+Most popular players of this sport
+
+
+================================================================================================
+
+4) Tennis
+
+	https://en.wikipedia.org/wiki/Tennis
+
+	* Basic information -
+		p:nth-child(6) , p:nth-child(5) , p:nth-child(4) , .vcard+ p
+	* Summary Card -
+		---- page.css(' .vcard').text
+	Rules and Playing_regulations -
+		http://www.rulesofsport.com/sports/cricket.html
+		#content li
+
+	Players 
+	Equipments
+	Scoring 
+
+Most popular players of this sport
+
+================================================================================================
+
+5) 		Rugby_football
+	
+	https://en.wikipedia.org/wiki/Rugby_football
+
+	* Basic information -
+		p:nth-child(2)
+
+
+	Rules & regulations 
+		p:nth-child(32) , p:nth-child(31) , ul:nth-child(30) li , p:nth-child(28)
+	
+	http://www.rulesofsport.com/sports/rugby.html
+		#content li
+	Players 	
+================================================================================================
+
+6) 		Rugby_football
+
