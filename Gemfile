@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 # Use Puma as the app server
@@ -35,8 +34,8 @@ gem 'activeadmin', github: 'activeadmin'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
-  gem 'mysql2'
 end
+gem 'mysql2'
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
