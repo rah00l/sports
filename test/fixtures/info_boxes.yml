@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  first_played: 2016-09-05
+  highest_governing_body: MyString
+  players: 1
+  playing_time: MyString
+  scoring: MyText
+  presence: MyString
+  sport_id: 1
+
+two:
+  first_played: 2016-09-05
+  highest_governing_body: MyString
+  players: 1
+  playing_time: MyString
+  scoring: MyText
+  presence: MyString
+  sport_id: 1
