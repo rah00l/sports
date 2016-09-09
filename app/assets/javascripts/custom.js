@@ -44,11 +44,11 @@ jQuery(document).ready(function() {
     });
 });
 
-wow = new WOW({
-    animateClass: 'animated',
-    offset: 100
-});
-wow.init();
+// wow = new WOW({
+//     animateClass: 'animated',
+//     offset: 100
+// });
+// wow.init();
 
 jQuery(window).load(function() { // makes sure the whole site is loaded
     $('#status').fadeOut(); // will first fade out the loading animation

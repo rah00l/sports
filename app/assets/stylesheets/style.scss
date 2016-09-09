@@ -39,7 +39,7 @@ img:hover{opacity:0.75}
 .header_top_right{ float:right; display:inline; width:30%; text-align:right}
 .search_form{ padding:3px 0 0}
 .search_form input[type="text"]{ background:none repeat scroll 0 0 #fff; border:medium none; color:#afafaf; display:inline-block; line-height:27px; margin:0; max-height:31px; padding:0 0 0 15px; width:180px}
-.search_form input[type="submit"]{ background:url("images/icon-search.png") no-repeat scroll center 5px rgba(0,0,0,0); height:27px; line-height:27px; width:30px; border:none}
+.search_form input[type="submit"]{ background:url(asset_path("icon-search.png")) no-repeat scroll center 5px rgba(0,0,0,0); height:27px; line-height:27px; width:30px; border:none}
 .header_bottom{display:inline; float:left; width:100%; padding:30px 0px}
 .header_bottom_left{float:left; display:inline; width:217px}
 .logo{display:block; font-family:"Oswald",sans-serif; font-size:35px; font-weight:bold; line-height:32px; width:217px}
