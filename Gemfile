@@ -30,10 +30,10 @@ gem 'devise'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'activeadmin', github: 'activeadmin'
 
-# # gem provides a simple and extremely flexible way to upload files
-# gem 'carrierwave'
-# # CarrierWave comes with a small library to make manipulating images with RMagick easie
-# gem 'rmagick'
+# gem provides a simple and extremely flexible way to upload files
+gem 'carrierwave'
+# CarrierWave comes with a small library to make manipulating images with RMagick easie
+gem 'rmagick'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -22,6 +22,9 @@ Information -
 		First Played / Highest governing body/ / Players / playing time/ National game? (Country) / Equipments / Scoring / Presence (Olympics)
 	
 	Rules and regulations	-
+		name 
+		description
+		sport_id
 
 	Played in what all countries - (multiple checkboxes)
 
@@ -37,6 +40,20 @@ Information -
 
 ================================================================================================
 
+rails g model info_box first_played:date highest_governing_body:string players:integer playing_time:string scoring:text presence:string sport_id:integer
+
+	---> rails g active_admin:resource info_box
+
+rails g model equipment name:string sport_id:integer description:text
+
+	---> rails g active_admin:resource equipment
+
+rails g model rule name:string description:text sport_id:integer
+
+		---> rails g active_admin:resource rule
+
+
+================================================================================================
 
 1) FootBall -
 

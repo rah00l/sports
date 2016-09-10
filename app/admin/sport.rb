@@ -4,7 +4,7 @@ ActiveAdmin.register Sport do
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
 # permit_params :list, :of, :attributes, :on, :model
-	permit_params :name, :basic_info, :history, :category_id, :nation_id, info_box_attributes: [:first_played, :highest_governing_body, :players, :playing_time, :scoring, :presence]
+	permit_params :name, :basic_info, :history, :category_id, :nation_id, info_box_attributes: [:first_played, :highest_governing_body, :players, :playing_time, :scoring, :presence], attachments_attributes: :file
 #
 # or
 #
@@ -38,6 +38,10 @@ form do |f|
     s.input :playing_time
     s.input :scoring
     s.input :presence
+  end
+
+  f.has_many :attachments do |a|
+    a.input :file
   end
 
   # f.has_many :players do |a|
