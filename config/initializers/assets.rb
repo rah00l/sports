@@ -11,6 +11,7 @@ Rails.application.config.assets.version = '1.0'
 # Rails.application.config.assets.precompile += %w( search.js )
 Rails.application.config.assets.precompile += %w( custom.css )
 Rails.application.config.assets.precompile += %w( font-awesome.min.scss )
+Rails.application.config.assets.precompile += %w( main.css )
 Rails.application.config.assets.precompile += %w( custom.js )
 Rails.application.config.assets.precompile += %w( skel.min.js )
 Rails.application.config.assets.precompile += %w( util.js )
