@@ -9,103 +9,16 @@
 
   <body>
 		<!-- Header -->
-			<header id="header">
-				<div class="inner">
-					<div class="content">
-						<h1>Radius</h1>
-						<h2>A fully responsive masonry-style<br />
-						portfolio template.</h2>
-						<a href="#" class="button big alt"><span>Let's Go</span></a>
-					</div>
-					<a href="#" class="button hidden"><span>Let's Go</span></a>
-				</div>
-			</header>
+     <%= render 'shared/header' %>
+    <!-- Header -->
 
-  <!-- Main -->
-  	<div id="main">
-  		<div class="inner">
-  			<div class="columns">
+    <!-- Main -->
+      <%= render 'shared/main_containt' %>
+    <!-- Main -->
 
-  				<!-- Column 1 (horizontal, vertical, horizontal, vertical) -->
-  					<div class="image fit">
-  						<a href="detail1.html"><%= image_tag "pic01.jpg" %></a>
-  					</div>
-  					<div class="image fit">
-  						<a href="detail1.html"><%= image_tag "pic02.jpg" %></a>
-  					</div>
-  					<div class="image fit">
-  						<a href="detail1.html"><%= image_tag "pic03.jpg" %></a>
-  					</div>
-  					<div class="image fit">
-  						<a href="detail1.html"><%= image_tag "pic04.jpg" %></a>
-  					</div>
-
-  				<!-- Column 2 (vertical, horizontal, vertical, horizontal) -->
-  					<div class="image fit">
-  						<a href="detail1.html"><%= image_tag "pic06.jpg" %></a>
-  					</div>
-  					<div class="image fit">
-  						<a href="detail1.html"><%= image_tag "pic05.jpg" %></a>
-  					</div>
-  					<div class="image fit">
-  						<a href="detail1.html"><%= image_tag "pic08.jpg" %></a>
-  					</div>
-  					<div class="image fit">
-  						<a href="detail1.html"><%= image_tag "pic07.jpg" %></a>
-  					</div>
-
-  				<!-- Column 3 (horizontal, vertical, horizontal, vertical) -->
-  					<div class="image fit">
-  						<a href="detail1.html"><%= image_tag "pic09.jpg" %></a>
-  					</div>
-  					<div class="image fit">
-  						<a href="detail1.html"><%= image_tag "pic12.jpg" %></a>
-  					</div>
-  					<div class="image fit">
-  						<a href="detail1.html"><%= image_tag "pic11.jpg" %></a>
-  					</div>
-  					<div class="image fit">
-  						<a href="detail1.html"><%= image_tag "pic10.jpg" %></a>
-  					</div>
-
-  				<!-- Column 4 (vertical, horizontal, vertical, horizontal) -->
-  					<div class="image fit">
-  						<a href="detail1.html"><%= image_tag "pic13.jpg" %></a>
-  					</div>
-  					<div class="image fit">
-  						<a href="detail1.html"><%= image_tag "pic14.jpg" %></a>
-  					</div>
-  					<div class="image fit">
-  						<a href="detail1.html"><%= image_tag "pic15.jpg" %></a>
-  					</div>
-  					<div class="image fit">
-  						<a href="detail1.html"><%= image_tag "pic16.jpg" %></a>
-  					</div>
-
-  			</div>
-  		</div>
-  	</div>
-
-  <!-- Footer -->
-  	<footer id="footer">
-  		<a href="#" class="info fa fa-info-circle"><span>About</span></a>
-  		<div class="inner">
-  			<div class="content">
-  				<h3>Vestibulum hendrerit tortor id gravida</h3>
-  				<p>In tempor porttitor nisl non elementum. Nulla ipsum ipsum, feugiat vitae vehicula vitae, imperdiet sed risus. Fusce sed dictum neque, id auctor felis. Praesent luctus sagittis viverra. Nulla erat nibh, fermentum quis enim ac, ultrices euismod augue. Proin ligula nibh, pretium at enim eget, tempor feugiat nulla.</p>
-  			</div>
-  			<div class="copyright">
-  				<h3>Follow me</h3>
-  				<ul class="icons">
-  					<li><a href="#" class="icon fa fa-twitter"><span class="label">Twitter</span></a></li>
-  					<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-  					<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-  					<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
-  				</ul>
-  				&copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com/">Unsplash</a>.
-  			</div>
-  		</div>
-  	</footer>
+    <!-- Footer -->
+      <%= render 'shared/footer' %>
+    <!-- Footer -->
     <%= yield %>
   </body>
 </html>
