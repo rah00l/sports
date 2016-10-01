@@ -1,6 +1,6 @@
 class SportsController < ApplicationController
   before_action :set_sport, only: [:show, :edit, :update, :destroy]
-  layout 'sport_page', :only => [:show]
+  # layout 'sport_page', :only => [:show]
   # GET /sports
   # GET /sports.json
   def index

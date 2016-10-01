@@ -13,7 +13,7 @@
     <!-- Header -->
 
     <!-- Main -->
-      <%= render 'shared/main_containt' %>
+      <%= render 'shared/main_containt' if params[:controller].eql?('main')%>
     <!-- Main -->
 
     <!-- Footer -->
