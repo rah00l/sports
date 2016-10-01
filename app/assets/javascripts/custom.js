@@ -18,7 +18,7 @@ $(document).on('turbolinks:load', function() {
 
 		var	$window = $(window),
 			$body = $('body'),
-			$header = $('#header'),
+			$header = $('#custom-header'),
 			$footer = $('#footer');
 
 		// Disable animations/transitions until the page has loaded.
@@ -45,11 +45,11 @@ $(document).on('turbolinks:load', function() {
 			// $header.each( function() {
 
 			// 	var t 		= jQuery(this),
-			// 		button 	= t.find('.button');
+			// 		button 	= t.find('.custom-button');
 
 			// 	button.click(function(e) {
 
-			// 		t.toggleClass('hide');
+			// 		t.toggleClass('custom-hide');
 
 			// 		if ( t.hasClass('preview') ) {
 			// 			return true;
@@ -63,13 +63,12 @@ $(document).on('turbolinks:load', function() {
 
 		// Footer.
 			$footer.each( function() {
-
 				var t 		= jQuery(this),
 					inner 	= t.find('.inner'),
 					button 	= t.find('.info');
 
 				button.click(function(e) {
-					t.toggleClass('show');
+					t.toggleClass('custom-show');
 					e.preventDefault();
 				});
 

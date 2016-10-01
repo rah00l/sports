@@ -312,7 +312,7 @@
 	input[type="reset"],
 	input[type="button"],
 	button,
-	.button {
+	.custom-button {
 		-moz-appearance: none;
 		-webkit-appearance: none;
 		-ms-appearance: none;
@@ -338,7 +338,7 @@
 		input[type="reset"].icon,
 		input[type="button"].icon,
 		button.icon,
-		.button.icon {
+		.custom-button.icon {
 			padding-left: 1.35em;
 		}
 
@@ -346,7 +346,7 @@
 			input[type="reset"].icon:before,
 			input[type="button"].icon:before,
 			button.icon:before,
-			.button.icon:before {
+			.custom-button.icon:before {
 				margin-right: 0.5em;
 			}
 
@@ -354,7 +354,7 @@
 		input[type="reset"].alt,
 		input[type="button"].alt,
 		button.alt,
-		.button.alt {
+		.custom-button.alt {
 			background: #FFF;
 			color: #e74c3c;
 		}
@@ -363,7 +363,7 @@
 		input[type="reset"].fit,
 		input[type="button"].fit,
 		button.fit,
-		.button.fit {
+		.custom-button.fit {
 			display: block;
 			margin: 0 0 1em 0;
 			width: 100%;
@@ -373,7 +373,7 @@
 		input[type="reset"].small,
 		input[type="button"].small,
 		button.small,
-		.button.small {
+		.custom-button.small {
 			font-size: 0.8em;
 		}
 
@@ -381,7 +381,7 @@
 		input[type="reset"].big,
 		input[type="button"].big,
 		button.big,
-		.button.big {
+		.custom-button.big {
 			font-size: 1.35em;
 		}
 
@@ -392,8 +392,8 @@
 		input[type="button"]:disabled,
 		button.disabled,
 		button:disabled,
-		.button.disabled,
-		.button:disabled {
+		.custom-button.disabled,
+		.custom-button:disabled {
 			-moz-pointer-events: none;
 			-webkit-pointer-events: none;
 			-ms-pointer-events: none;
@@ -407,7 +407,7 @@
 			input[type="reset"],
 			input[type="button"],
 			button,
-			.button {
+			.custom-button {
 				padding: 0;
 			}
 
@@ -1187,7 +1187,7 @@
 
 /* Header */
 
-	#header {
+	#custom-header {
 		-moz-transition: background 1s ease-in-out, height 0.2s ease-in-out;
 		-webkit-transition: background 1s ease-in-out, height 0.2s ease-in-out;
 		-ms-transition: background 1s ease-in-out, height 0.2s ease-in-out;
@@ -1215,7 +1215,7 @@
 		z-index: 10001;
 	}
 
-		#header .inner {
+		#custom-header .inner {
 			-moz-transition: height 0.2s ease-in-out, width 0.2s ease-in-out;
 			-webkit-transition: height 0.2s ease-in-out, width 0.2s ease-in-out;
 			-ms-transition: height 0.2s ease-in-out, width 0.2s ease-in-out;
@@ -1249,7 +1249,7 @@
 			cursor: default;
 		}
 
-			#header .inner .content {
+			#custom-header .inner .content {
 				-moz-transition: opacity 1s ease-in-out;
 				-webkit-transition: opacity 1s ease-in-out;
 				-ms-transition: opacity 1s ease-in-out;
@@ -1257,20 +1257,20 @@
 				opacity: 1;
 			}
 
-				#header .inner .content h1 {
+				#custom-header .inner .content h1 {
 					font-size: 4em;
 					font-family: 'Pattaya', sans-serif;
 					margin: 0 0 .25em 0;
 					color: #fff;
 				}
 
-				#header .inner .content h2 {
+				#custom-header .inner .content h2 {
 					font-size: 1.5em;
 					color: #fff;
 					margin: 0 0 1em 0;
 				}
 
-			#header .inner .button {
+			#custom-header .inner .custom-button {
 				-moz-transition: background 1s ease-in-out;
 				-webkit-transition: background 1s ease-in-out;
 				-ms-transition: background 1s ease-in-out;
@@ -1279,16 +1279,16 @@
 				border-radius: 30px;
 			}
 
-				#header .inner .button.hidden {
+				#custom-header .inner .custom-button.custom-hidden {
 					display: none;
 					cursor: pointer;
 				}
 
-			#header .inner.hidden {
+			#custom-header .inner.custom-hidden {
 				display: none;
 			}
 
-		#header.hide, #header.preview {
+		#custom-header.custom-hide, #custom-header.preview {
 			-moz-transition: background 0.2s ease-in-out, height 1s ease-in-out;
 			-webkit-transition: background 0.2s ease-in-out, height 1s ease-in-out;
 			-ms-transition: background 0.2s ease-in-out, height 1s ease-in-out;
@@ -1297,29 +1297,29 @@
 			height: 0;
 		}
 
-			#header.hide .inner, #header.preview .inner {
+			#custom-header.custom-hide .inner, #custom-header.preview .inner {
 				height: 6em;
 				width: 6em;
 				padding: 2em;
 			}
 
-				#header.hide .inner .content, #header.preview .inner .content {
+				#custom-header.custom-hide .inner .content, #custom-header.preview .inner .content {
 					opacity: 0;
 				}
 
-					#header.hide .inner .content h1, #header.preview .inner .content h1 {
+					#custom-header.custom-hide .inner .content h1, #custom-header.preview .inner .content h1 {
 						display: none;
 					}
 
-					#header.hide .inner .content h2, #header.preview .inner .content h2 {
+					#custom-header.custom-hide .inner .content h2, #custom-header.preview .inner .content h2 {
 						display: none;
 					}
 
-			#header.hide .button.big, #header.preview .button.big {
+			#custom-header.custom-hide .custom-button.big, #custom-header.preview .custom-button.big {
 				display: none;
 			}
 
-			#header.hide .button.hidden, #header.preview .button.hidden {
+			#custom-header.custom-hide .custom-button.custom-hidden, #custom-header.preview .custom-button.custom-hidden {
 				text-decoration: none;
 				padding-top: 1.5em;
 				padding-left: 0;
@@ -1328,7 +1328,7 @@
 				display: inline-block;
 			}
 
-				#header.hide .button.hidden:before, #header.preview .button.hidden:before {
+				#custom-header.custom-hide .custom-button.custom-hidden:before, #custom-header.preview .custom-button.custom-hidden:before {
 					-moz-osx-font-smoothing: grayscale;
 					-webkit-font-smoothing: antialiased;
 					font-family: FontAwesome;
@@ -1337,19 +1337,19 @@
 					text-transform: none !important;
 				}
 
-				#header.hide .button.hidden:before, #header.preview .button.hidden:before {
+				#custom-header.custom-hide .custom-button.custom-hidden:before, #custom-header.preview .custom-button.custom-hidden:before {
 					content: '\f015';
 					color: #FFF;
 					font-size: 1.5em;
 				}
 
-				#header.hide .button.hidden span, #header.preview .button.hidden span {
+				#custom-header.custom-hide .custom-button.custom-hidden span, #custom-header.preview .custom-button.custom-hidden span {
 					display: none;
 				}
 
 		@media screen and (max-width: 736px) {
 
-			#header .inner {
+			#custom-header .inner {
 				width: 25em;
 				height: 25em;
 				font-size: .75em;
@@ -1360,14 +1360,14 @@
 
 		@media screen and (max-width: 480px) {
 
-			#header .inner {
+			#custom-header .inner {
 				width: 26em;
 				height: 26em;
 				padding: 2em;
 				font-size: .65em;
 			}
 
-				#header .inner .button {
+				#custom-header .inner .custom-button {
 					padding-left: 2em;
 					padding-right: 2em;
 				}
@@ -1400,7 +1400,7 @@
 		z-index: 9999;
 	}
 
-		#footer.show {
+		#footer.custom-show {
 			bottom: 0;
 		}
 
