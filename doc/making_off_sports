@@ -1,3 +1,35 @@
+:::::::::::::::::::::::::::::::::::::::: Earlier ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+rahul@rahul-Satellite-L510 sports (develop) $git remote -v
+			heroku	https://git.heroku.com/allaboutsports.git (fetch)
+			heroku	https://git.heroku.com/allaboutsports.git (push)
+			origin	git@github.com:rah00l/sports.git (fetch)
+			origin	git@github.com:rah00l/sports.git (push)
+			production-sportsinfo	https://git.heroku.com/warm-ocean-23129.git (fetch)
+			production-sportsinfo	https://git.heroku.com/warm-ocean-23129.git (push)
+
+:::::::::::::::::::::::::::::::::::::: Now :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+
+rahul@rahul-Satellite-L510 sports (develop) $git remote -v
+			heroku	https://git.heroku.com/sportsinfo.git (fetch)
+			heroku	https://git.heroku.com/sportsinfo.git (push)
+			origin	git@github.com:rah00l/sports.git (fetch)
+			origin	git@github.com:rah00l/sports.git (push)
+			production-sportsinfo	https://git.heroku.com/sportsinfo.git (fetch)
+			production-sportsinfo	https://git.heroku.com/sportsinfo.git (push)
+
+rahul@rahul-Satellite-L510 sports (develop) $git push production-sportsinfo develop:master
+
+
+
+
+
+
+
+
+
 page = Nokogiri::HTML(open('https://en.wikipedia.org/wiki/Dahi_Handi'))
 page.at_css('.vevent+ p').text
 
