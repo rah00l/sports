@@ -42,24 +42,24 @@ jQuery(document).ready(function() {
 			});
 
 		// Header.
-			$header.each( function() {
+			// $header.each( function() {
 
-				var t 		= jQuery(this),
-					button 	= t.find('.button');
+			// 	var t 		= jQuery(this),
+			// 		button 	= t.find('.button');
 
-				button.click(function(e) {
+			// 	button.click(function(e) {
 
-					t.toggleClass('hide');
+			// 		t.toggleClass('hide');
 
-					if ( t.hasClass('preview') ) {
-						return true;
-					} else {
-						e.preventDefault();
-					}
+			// 		if ( t.hasClass('preview') ) {
+			// 			return true;
+			// 		} else {
+			// 			e.preventDefault();
+			// 		}
 
-				});
+			// 	});
 
-			});
+			// });
 
 		// Footer.
 			$footer.each( function() {
