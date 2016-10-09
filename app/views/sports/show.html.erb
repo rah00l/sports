@@ -1,35 +1,126 @@
 <!DOCTYPE HTML>
 <html>
-	<head>
-	</head>
-	<body>
-		<!-- Header -->
-<!-- 			<header id="header" class="preview">
-				<div class="inner">
-					<div class="content">
-						<h1>Radius</h1>
-						<h2>A fully responsive masonry style portfolio template.</h2>
-					</div>
-					<a href="index.html" class="button hidden"><span>Let's Go</span></a>
-				</div>
-			</header>
- -->
-		<!-- Main -->
-			<div id="preview">
-				<div class="inner">
-					<div class="image fit">
+<head>
+</head>
+<body>
+	<!-- Main -->
+	<div class="container">
+		<div id="preview">
+			<div class="innr">
+				<div class="row">
+					<div class="image fit col-md-12">
 						<%= image_tag "pic05.jpg" %>
 					</div>
-					<div class="content">
+				</div>
+				<div class="row">
+					<div class="content col-md-9">
 						<header>
 							<h2>Aliquam gravida felis vel velit accumsan</h2>
 						</header>
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec est ligula, ultrices id posuere vitae, rutrum in tellus. Suspendisse vitae aliquam metus. Cras blandit, tortor ut eleifend porttitor, urna lacus porttitor arcu, quis vestibulum metus dolor ut neque. Aenean et nisi venenatis, mollis enim eget, pharetra nunc. Sed blandit non mi nec ultrices. Vestibulum hendrerit tortor id gravida eleifend. Morbi vitae molestie odio. Etiam nec est vel sapien posuere vulputate eget eget mi. Quisque vulputate ligula velit, id accumsan dui fringilla nec. Morbi nisi mauris, placerat sit amet feugiat nec, vehicula ut ex.</p>
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec est ligula, ultrices id posuere vitae, rutrum in tellus. Suspendisse vitae aliquam metus. Cras blandit, tortor ut eleifend porttitor, urna lacus porttitor arcu, quis vestibulum metus dolor ut neque. Aenean et nisi venenatis, mollis enim eget, pharetra nunc. Sed blandit non mi nec ultrices. Vestibulum hendrerit tortor id gravida eleifend. Morbi vitae molestie odio. Etiam nec est vel sapien posuere vulputate eget eget mi. Quisque vulputate ligula velit, id accumsan dui fringilla nec. Morbi nisi mauris, placerat sit amet feugiat nec, vehicula ut ex.</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec est ligula, ultrices id posuere vitae, rutrum in tellus. Suspendisse vitae aliquam metus. Cras blandit, tortor ut eleifend porttitor, urna lacus porttitor arcu, quis vestibulum metus dolor ut neque. Aenean et nisi venenatis, mollis enim eget, pharetra nunc. Sed blandit non mi nec ultrices. Vestibulum hendrerit tortor id gravida eleifend. Morbi vitae molestie odio. Etiam nec est vel sapien posuere vulputate eget eget mi. Quisque vulputate ligula velit, id accumsan dui fringilla nec. Morbi nisi mauris, placerat sit amet feugiat nec, vehicula ut ex.</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec est ligula, ultrices id posuere vitae, rutrum in tellus. Suspendisse vitae aliquam metus. Cras blandit, tortor ut eleifend porttitor, urna lacus porttitor arcu, quis vestibulum metus dolor ut neque. Aenean et nisi venenatis, mollis enim eget, pharetra nunc. Sed blandit non mi nec ultrices. Vestibulum hendrerit tortor id gravida eleifend. Morbi vitae molestie odio. Etiam nec est vel sapien posuere vulputate eget eget mi. Quisque vulputate ligula velit, id accumsan dui fringilla nec. Morbi nisi mauris, placerat sit amet feugiat nec, vehicula ut ex.</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec est ligula, ultrices id posuere vitae, rutrum in tellus. Suspendisse vitae aliquam metus. Cras blandit, tortor ut eleifend porttitor, urna lacus porttitor arcu, quis vestibulum metus dolor ut neque. Aenean et nisi venenatis, mollis enim eget, pharetra nunc. Sed blandit non mi nec ultrices. Vestibulum hendrerit tortor id gravida eleifend. Morbi vitae molestie odio. Etiam nec est vel sapien posuere vulputate eget eget mi. Quisque vulputate ligula velit, id accumsan dui fringilla nec. Morbi nisi mauris, placerat sit amet feugiat nec, vehicula ut ex.</p>
+					</div>
+					<div class="col-md-3 top-margin-50">
+						<div class="list-group">
+							<span class="list-group-item active">
+								Sports by
+							</span>
+							<a href="#" class="list-group-item">Gallery</a>
+							<a href="#" class="list-group-item">A to Z</a>
+							<a href="#" class="list-group-item">By type</a>
+							<a href="#" class="list-group-item">By continent</a>
+							<a href="#" class="list-group-item">By country</a>
+							<a href="#" class="list-group-item">All</a>
+						</div>
 					</div>
 				</div>
-				<a href="detail1.html" class="nav previous"><span class="fa fa-chevron-left"></span></a>
-				<a href="detail2.html" class="nav next"><span class="fa fa-chevron-right"></span></a>
+				<div class="row">
+					<div class="col-md-12">
+					<h1>Most popular players</h1>
+						<div class="well">
+							<div id="myCarousel" class="carousel slide">
+
+								<!-- Carousel items -->
+								<div class="carousel-inner">
+									<div class="item active">
+										<div class="row">
+											<div class="col-sm-3">
+												<!-- <a href="#x"><img src="http://placehold.it/500x500" alt="Image" class="img-responsive"></a> -->
+												<%= link_to image_tag '500.png', class: 'img-responsive' %>
+											</div>
+											<div class="col-sm-3">
+												<!-- <a href="#x"><img src="http://placehold.it/500x500" alt="Image" class="img-responsive"></a> -->
+												<%= link_to image_tag '500.png', class: 'img-responsive' %>
+											</div>
+											<div class="col-sm-3">
+												<!-- <a href="#x"><img src="http://placehold.it/500x500" alt="Image" class="img-responsive"></a> -->
+												<%= link_to image_tag '500.png', class: 'img-responsive' %>
+											</div>
+											<div class="col-sm-3">
+												<!-- <a href="#x"><img src="http://placehold.it/500x500" alt="Image" class="img-responsive"></a> -->
+											</div>
+										</div>
+										<!--/row-->
+									</div>
+									<!--/item-->
+									<div class="item">
+										<div class="row">
+											<div class="col-sm-3">
+												<!-- <a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" class="img-responsive"></a> -->
+												<%= link_to image_tag('250.png', class: 'img-responsive'), class: 'thumbnail' %>
+											</div>
+											<div class="col-sm-3">
+												<!-- <a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" class="img-responsive"></a> -->
+												<%= link_to image_tag('250.png', class: 'img-responsive'), class: 'thumbnail' %>
+											</div>
+											<div class="col-sm-3">
+												<!-- <a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" class="img-responsive"></a> -->
+												<%= link_to image_tag('250.png', class: 'img-responsive'), class: 'thumbnail' %>
+											</div>
+											<div class="col-sm-3">
+												<!-- <a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" class="img-responsive"></a> -->
+											</div>
+										</div>
+										<!--/row-->
+									</div>
+									<!--/item-->
+									<div class="item">
+										<div class="row">
+											<div class="col-sm-3">
+												<!-- <a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" class="img-responsive"></a> -->
+												<%= link_to image_tag('250.png', class: 'img-responsive'), class: 'thumbnail' %>
+											</div>
+											<div class="col-sm-3">
+												<!-- <a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" class="img-responsive"></a> -->
+												<%= link_to image_tag('250.png', class: 'img-responsive'), class: 'thumbnail' %>
+											</div>
+											<div class="col-sm-3">
+												<!-- <a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" class="img-responsive"></a> -->
+											</div>
+											<div class="col-sm-3">
+												<!-- <a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" class="img-responsive"></a> -->
+											</div>
+										</div>
+										<!--/row-->
+									</div>
+									<!--/item-->
+								</div>
+								<!--/carousel-inner--> <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
+
+								<a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
+							</div>
+							<!--/myCarousel-->
+						</div>
+						<!--/well-->
+					</div>
+				</div>
 			</div>
-	</body>
+			<a href="detail1.html" class="nav previous"><span class="fa fa-chevron-left"></span></a>
+			<a href="detail2.html" class="nav next"><span class="fa fa-chevron-right"></span></a>
+		</div>
+	</div>
+</body>
 </html>
