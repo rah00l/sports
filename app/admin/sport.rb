@@ -4,7 +4,11 @@ ActiveAdmin.register Sport do
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
 # permit_params :list, :of, :attributes, :on, :model
-	permit_params :name, :basic_info, :history, :category_id, :nation_id, info_box_attributes: [:first_played, :highest_governing_body, :players, :playing_time, :scoring, :presence], attachments_attributes: :file
+	permit_params :name, :basic_info, :history, :category_id, :nation_id,
+                info_box_attributes: [:first_played, :highest_governing_body, :players,
+                  :playing_time, :scoring, :presence],
+                attachments_attributes: :file,
+                players_attributes: :name
 #
 # or
 #
@@ -28,7 +32,7 @@ form do |f|
     #                   label: 'Check this box to allow publish this post'
     # f.input :published_at, as: :datepicker
     # f.input :player_ids, as: :select, collection: Player.all, multiple: true
-    f.input :players, include_hidden: false, input_html: { name: "sport[player_ids]" }
+    # f.input :players, include_hidden: false, input_html: { name: "sport[player_ids]" }
   end
 
   f.inputs "More Information", for: [:info_box, f.object.info_box || InfoBox.new] do |s|
@@ -44,9 +48,9 @@ form do |f|
     a.input :file
   end
 
-  # f.has_many :players do |a|
-  # 	a.input :name
-  # end
+  f.has_many :players do |a|
+    a.input :id, as: :select, collection: Player.all, multiple: true
+  end
 
   f.actions
 end

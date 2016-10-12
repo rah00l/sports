@@ -12,4 +12,5 @@ class Sport < ApplicationRecord
 
 	accepts_nested_attributes_for :info_box
 	accepts_nested_attributes_for :attachments
+	accepts_nested_attributes_for :players
 end
