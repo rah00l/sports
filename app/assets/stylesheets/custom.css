@@ -1527,7 +1527,15 @@
 	}
 
 	.list-group > .active{
+		color: #333;
 		background-color: #e74c3c;
+		border-color: #e74c3c;
+	}
+
+	.list-group > .active:hover {
+		color: #333;
+		background-color: #ec3421;
+		border-color: #ec3421;
 	}
 
 	.custom-text-color {
