@@ -15,10 +15,11 @@
 				<div class="row">
 					<div class="content col-md-9">
 						<header>
-							<h2>Aliquam gravida felis vel velit accumsan</h2>
+							<h2><%= @sport.name %><small> Stop dating, Start batting</small></h2>
 						</header>
 						<div class="row">
-							<div class="col-md-7">
+							<!-- Vcart information -->
+							<div class="col-md-5">
 								<div class="panel panel-default">
 								  <!-- Default panel contents -->
 								  <div class="panel-heading">Vcard Sport Information</div>
@@ -58,22 +59,29 @@
 								  </table>
 								</div>
 							</div>
+							<!-- Vcart information -->
+
 							<!-- Basic Inforation about sport -->
-							<div class="col-md-5">
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec est ligula, ultrices id posuere vitae, rutrum in tellus. Suspendisse vitae aliquam metus. Cras blandit, tortor ut eleifend porttitor, urna lacus porttitor arcu, quis vestibulum metus dolor ut neque. Aenean et nisi venenatis, mollis enim eget, pharetra nunc. Sed blandit non mi nec ultrices. Vestibulum hendrerit tortor id gravida eleifend. Morbi vitae molestie odio. Etiam nec est vel sapien posuere vulputate eget eget mi. Quisque vulputate ligula velit, id accumsan dui fringilla nec. Morbi nisi mauris, placerat sit amet feugiat nec, vehicula ut ex.</p>
+							<div class="col-md-7">
+								<p><%= @sport.basic_info %></p>
 							</div>
 							<!-- Basic Inforation about sport -->
 						</div>
 
+						<!-- History of sport -->
 						<h1 class="custom-text-color" class="custom-text-color">History</h1>
 
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec est ligula, ultrices id posuere vitae, rutrum in tellus. Suspendisse vitae aliquam metus. Cras blandit, tortor ut eleifend porttitor, urna lacus porttitor arcu, quis vestibulum metus dolor ut neque. Aenean et nisi venenatis, mollis enim eget, pharetra nunc. Sed blandit non mi nec ultrices. Vestibulum hendrerit tortor id gravida eleifend. Morbi vitae molestie odio. Etiam nec est vel sapien posuere vulputate eget eget mi. Quisque vulputate ligula velit, id accumsan dui fringilla nec. Morbi nisi mauris, placerat sit amet feugiat nec, vehicula ut ex.</p>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec est ligula, ultrices id posuere vitae, rutrum in tellus. Suspendisse vitae aliquam metus. Cras blandit, tortor ut eleifend porttitor, urna lacus porttitor arcu, quis vestibulum metus dolor ut neque. Aenean et nisi venenatis, mollis enim eget, pharetra nunc. Sed blandit non mi nec ultrices. Vestibulum hendrerit tortor id gravida eleifend. Morbi vitae molestie odio. Etiam nec est vel sapien posuere vulputate eget eget mi. Quisque vulputate ligula velit, id accumsan dui fringilla nec. Morbi nisi mauris, placerat sit amet feugiat nec, vehicula ut ex.</p>
+						<p><%= @sport.history %></p>
+						<!-- History of sport -->
 
+						<!-- Rules & regulations of sport -->
 						<h1 class="custom-text-color">Rules & regulations</h1>
-
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec est ligula, ultrices id posuere vitae, rutrum in tellus. Suspendisse vitae aliquam metus. Cras blandit, tortor ut eleifend porttitor, urna lacus porttitor arcu, quis vestibulum metus dolor ut neque. Aenean et nisi venenatis, mollis enim eget, pharetra nunc. Sed blandit non mi nec ultrices. Vestibulum hendrerit tortor id gravida eleifend. Morbi vitae molestie odio. Etiam nec est vel sapien posuere vulputate eget eget mi. Quisque vulputate ligula velit, id accumsan dui fringilla nec. Morbi nisi mauris, placerat sit amet feugiat nec, vehicula ut ex.</p>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec est ligula, ultrices id posuere vitae, rutrum in tellus. Suspendisse vitae aliquam metus. Cras blandit, tortor ut eleifend porttitor, urna lacus porttitor arcu, quis vestibulum metus dolor ut neque. Aenean et nisi venenatis, mollis enim eget, pharetra nunc. Sed blandit non mi nec ultrices. Vestibulum hendrerit tortor id gravida eleifend. Morbi vitae molestie odio. Etiam nec est vel sapien posuere vulputate eget eget mi. Quisque vulputate ligula velit, id accumsan dui fringilla nec. Morbi nisi mauris, placerat sit amet feugiat nec, vehicula ut ex.</p>
+						<ul class="">
+							<% @sport.rules.each do |rule| %>
+							   <li class=""><%= rule.description %></li>
+							<% end %>
+						</ul>
+						<!-- Rules & regulations of sport -->
 
 						<h1 class="custom-text-color">Popularity</h1>
 
