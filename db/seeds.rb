@@ -9,36 +9,7 @@
 admin_user = User.find_by_email('rahulpatil2387@gmail.com')
 admin_user.destroy if admin_user
 one_user = User.create! email: 'rahulpatil2387@gmail.com',
-             password: 'rah00l2387',
-             password_confirmation: 'rah00l2387',
-             admin: true
+password: 'rah00l2387',
+password_confirmation: 'rah00l2387',
+admin: true
 puts 'Created admin user to start application with one sample user...!'
-
-## All Go cheat script ###
-Sport.destroy_all
-all_sports = Nokogiri::HTML(open("http://www.rulesofsport.com"))
-sports_list = all_sports.search(".mod-articles-category-title").children.map(&:text).compact.collect(&:strip)
-# sports_list = ['Football', 'cricket']
-# https://en.wikipedia.org/wiki/American Football
-
-sports_list.first(25).each do |sport|
-	wiki_page = Nokogiri::HTML(open("https://en.wikipedia.org/wiki/#{sport.downcase.tr(' ', '_')}"))
-	basic_info = wiki_page.css('p:nth-child(4), p:nth-child(3)').text if wiki_page.present?
-
-	sport = 'Hockey Field' if sport.eql?('Field Hockey')
-
-	# Extract rules of sport
-	rules_page = Nokogiri::HTML(open("http://www.rulesofsport.com/sports/#{sport.downcase.tr(' ', '-')}.html"))
-	history = rules_page.css('p:nth-child(5) , p:nth-child(4) , .itemMainImage+ p').text
-
-	sprt = Sport.create name: sport, basic_info: basic_info, history: history
-
-	rules = rules_page.css('h2+ ul').present? ? rules_page.css('h2+ ul') :  rules_page.css('#content li')
-	rules.search('li').each { |rule| Rule.create name: "Rule of sport ", description: rule.text, sport_id: sprt.id }
-end
-	# Extract history of sport
-		# if sport.eql?('Field Hockey')
-		# 	sport = 'Hockey Field'
-		# end
-
-## All Go cheat  script ###
