@@ -7,6 +7,9 @@ class Sport < ApplicationRecord
 	has_many :rules, dependent: :destroy
 	has_many :attachments, as: :attachable
 
+	has_many :countrywise_sports, dependent: :destroy
+	has_many :countries, through: :countrywise_sports
+
 	# Validation
 	validates :name, presence: true, uniqueness: true
 
