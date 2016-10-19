@@ -21,5 +21,6 @@ open("http://openconcept.ca/sites/openconcept.ca/files/country_code_drupal_0.txt
   countries.read.each_line do |country|
     code, name = country.chomp.split("|")
     Country.create!(name: name, code: code)
+    puts country.chomp.split("|")
   end
-end
+end	

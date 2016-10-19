@@ -8,17 +8,22 @@ namespace :go_all do
 		
 		all_sports = Nokogiri::HTML(open("http://www.rulesofsport.com"))
 		sports_list = all_sports.search(".mod-articles-category-title").children.map(&:text).compact.collect(&:strip)
-
+		# sports_list = ['TABLE TENNIS (PING PONG)']
 		sports_list.each do |sport|
+
 			begin
-				sport = get_sport_name_wiki(sport)
-				wiki_page = Nokogiri::HTML(open("https://en.wikipedia.org/wiki/#{sport.downcase.tr(' ', '_')}"))
+				puts sport
+				sport_wiki = get_sport_name_wiki(sport)
+				# byebug
+				puts sport_wiki
+				wiki_page = Nokogiri::HTML(open("https://en.wikipedia.org/wiki/#{sport_wiki.downcase.tr(' ', '_')}"))
 			rescue => e
 				puts e
 			end
 			basic_info = wiki_page.css('p:nth-child(4), p:nth-child(3)').text if wiki_page.present?
 
 			sport_name = get_proper_sport_name(sport)
+			puts sport_name
 			# sport = 'Hockey Field' if sport.eql?('Field Hockey')
 
 			# Extract rules of sport
@@ -49,6 +54,8 @@ namespace :go_all do
 			'kin-Ball'
 		when 'MMA (Mixed Martial Arts)'
 			'Mixed martial arts'
+		when 'Table Tennis (Ping Pong)'
+			'Table tennis'
 		else
 			sport
 		end
@@ -60,7 +67,7 @@ namespace :go_all do
 			'hockey field'
 		when 'MMA (Mixed Martial Arts)'
 			'mma mixed martial arts'
-		when 'TABLE TENNIS (PING PONG)'
+		when 'Table Tennis (Ping Pong)'
 			'table tennis ping pong'
 		else
 			sport
