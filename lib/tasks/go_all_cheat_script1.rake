@@ -20,34 +20,43 @@ namespace :go_all do
 
 	common_sports = sports_by_country.map(&:downcase) & sports_list_by_country.map(&:downcase)
 
-	common_sports.first(15).each do |sport_by_country|
+	common_sports.each do |sport_by_country|
 
-	sport_by_country_wiki_page = Nokogiri::HTML(open("https://en.wikipedia.org/wiki/Category:#{sport_by_country.downcase.tr(' ', '_')}"))
+	begin
+		puts sport_by_country
+		sport_by_country_wiki_page = Nokogiri::HTML(open("https://en.wikipedia.org/wiki/Category:#{sport_by_country.downcase.tr(' ', '_')}"))
+	rescue => e
+		puts e
+	end
 
-	css_selectors =  if sport_by_country_wiki_page.at_css('.mw-category-group+ .mw-category-group .CategoryTreeLabelCategory')
-		'.mw-category-group+ .mw-category-group .CategoryTreeLabelCategory'
+	css_selectors = '.mw-category-group+ .mw-category-group .CategoryTreeLabelCategory'
+
+	css_selectors =  if sport_by_country_wiki_page && sport_by_country_wiki_page.at_css(css_selectors)
+		css_selectors
 	else
 		'.CategoryTreeLabelCategory'
 	end
 
-		list_of_countries = sport_by_country_wiki_page.css(css_selectors).children.map(&:text).compact.collect(&:strip)
+		if sport_by_country_wiki_page.present?
+			list_of_countries = sport_by_country_wiki_page.css(css_selectors).children.map(&:text).compact.collect(&:strip)
 
-		sport_name = 	sport_by_country.chomp(' by country')
-		# sport_name = get_correct_country_name(sport_name)
-		p "#{sport_name} played in following countries"
-		countries = list_of_countries.map!(&:downcase).each {|country| country.gsub!("#{sport_name} in ", '') }
-		# p countries
-		countries.collect! { |country| country = country_name(country) }
-		# p countries
-		countries.each {|country| Country.find_or_create_by name: country }
-		p countries.count
-		sport = Sport.find_by(name: sport_name)
-		countries_list = Country.where(name: countries)
-		p countries_list.count
-		sport.countries.destroy_all if sport.present?
-		# sport.countries.count if sport.present?
-		sport.countries = countries_list if sport.present?
-		sport.countries.count if sport.present?
+			sport_name = 	sport_by_country.chomp(' by country')
+			# sport_name = get_correct_country_name(sport_name)
+			p "#{sport_name} played in following countries"
+			countries = list_of_countries.map!(&:downcase).each {|country| country.gsub!("#{sport_name} in ", '') }
+			# p countries
+			countries.collect! { |country| country = country_name(country) }
+			# p countries
+			countries.each {|country| Country.find_or_create_by name: country }
+			p countries.count
+			sport = Sport.find_by(name: sport_name)
+			countries_list = Country.where(name: countries)
+			p countries_list.count
+			sport.countries.destroy_all if sport.present?
+			# sport.countries.count if sport.present?
+			sport.countries = countries_list if sport.present?
+			sport.countries.count if sport.present?
+		end
 	end
 end
 
