@@ -83,9 +83,12 @@
 						</ul>
 						<!-- Rules & regulations of sport -->
 
-						<h1 class="custom-text-color">Popularity</h1>
+						<h1 class="custom-text-color">Popularity - List of <%= @sport.name %> Playing Countries</h1>
+						More than <%= @sport.countries.size %> countries that play <%= @sport.name %>.
+							<div class="well">
+								<%= @sport.countries.map(&:name).join(', ') %>
+							</div>
 
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec est ligula, ultrices id posuere vitae, rutrum in tellus. Suspendisse vitae aliquam metus. Cras blandit, tortor ut eleifend porttitor, urna lacus porttitor arcu, quis vestibulum metus dolor ut neque. Aenean et nisi venenatis, mollis enim eget, pharetra nunc. Sed blandit non mi nec ultrices. Vestibulum hendrerit tortor id gravida eleifend. Morbi vitae molestie odio. Etiam nec est vel sapien posuere vulputate eget eget mi. Quisque vulputate ligula velit, id accumsan dui fringilla nec. Morbi nisi mauris, placerat sit amet feugiat nec, vehicula ut ex.</p>
 					</div>
 					<div class="col-md-3 top-margin-50">
 						<div class="list-group">

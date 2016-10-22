@@ -1,6 +1,6 @@
 namespace :go_all do
 	desc "Geocode to get latitude, longitude and address"
-		task :cheat_script1 => :environment do
+	task :cheat_script1 => :environment do
 			## All Go cheat script ###
 	# Sport list from rule
 	all_sports = Nokogiri::HTML(open("http://www.rulesofsport.com"))
@@ -20,40 +20,51 @@ namespace :go_all do
 
 	common_sports = sports_by_country.map(&:downcase) & sports_list_by_country.map(&:downcase)
 
-	common_sports.first(2).each do |sport_by_country|
+	common_sports.first(15).each do |sport_by_country|
 
-		sport_by_country_wiki_page = Nokogiri::HTML(open("https://en.wikipedia.org/wiki/Category:#{sport_by_country.downcase.tr(' ', '_')}"))
+	sport_by_country_wiki_page = Nokogiri::HTML(open("https://en.wikipedia.org/wiki/Category:#{sport_by_country.downcase.tr(' ', '_')}"))
 
-		list_of_countries = sport_by_country_wiki_page.css('.mw-category-group+ .mw-category-group .CategoryTreeLabelCategory').children.map(&:text).compact.collect(&:strip)
+	css_selectors =  if sport_by_country_wiki_page.at_css('.mw-category-group+ .mw-category-group .CategoryTreeLabelCategory')
+		'.mw-category-group+ .mw-category-group .CategoryTreeLabelCategory'
+	else
+		'.CategoryTreeLabelCategory'
+	end
+
+		list_of_countries = sport_by_country_wiki_page.css(css_selectors).children.map(&:text).compact.collect(&:strip)
+
 		sport_name = 	sport_by_country.chomp(' by country')
 		# sport_name = get_correct_country_name(sport_name)
 		p "#{sport_name} played in following countries"
 		countries = list_of_countries.map!(&:downcase).each {|country| country.gsub!("#{sport_name} in ", '') }
-		# p countries.count
-		# countries = countries.each {|country| get_correct_country_name(country) }
-		# countries.each {|country| get_correct_country_name(country) }
+		# p countries
+		countries.collect! { |country| country = country_name(country) }
+		# p countries
+		countries.each {|country| Country.find_or_create_by name: country }
 		p countries.count
-		p countries
-		p list_of_countries.count
 		sport = Sport.find_by(name: sport_name)
-		country_ids = Country.where(name: countries)
-		p country_ids.count
-		byebug
-		# sport.countries.destroy_all if sport.countries.present?
-		sport.countries.count if sport.present?
-		sport.countries = country_ids if sport.present?
+		countries_list = Country.where(name: countries)
+		p countries_list.count
+		sport.countries.destroy_all if sport.present?
+		# sport.countries.count if sport.present?
+		sport.countries = countries_list if sport.present?
 		sport.countries.count if sport.present?
 	end
 end
 
-# def get_correct_country_name(name)
-# 	case name
-# 	when 'the united kingdom'
-# 		'united kingdom'
-# 	when "the united states"
-# 		'united states'
-# 	else
-# 		name
-# 	end
-# end
+def country_name(name)
+	case name
+	when 'the united kingdom'
+		'united kingdom'
+	when "the united states"
+		'united states'
+	when "the bahamas"
+		'bahamas'
+	when "the netherlands"
+		'netherlands'
+	when "the philippines"
+		'philippines'
+	else
+		name
+	end
+end
 end
