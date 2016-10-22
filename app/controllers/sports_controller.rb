@@ -10,6 +10,8 @@ class SportsController < ApplicationController
   # GET /sports/1
   # GET /sports/1.json
   def show
+    @prev = @sport.previous
+    @next = @sport.next
   end
 
   # GET /sports/new

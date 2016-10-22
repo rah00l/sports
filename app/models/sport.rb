@@ -16,4 +16,12 @@ class Sport < ApplicationRecord
 	accepts_nested_attributes_for :info_box
 	accepts_nested_attributes_for :attachments
 	accepts_nested_attributes_for :players
+
+	def previous
+	  Sport.where("id < ?", self.id).first
+	end
+
+	def next
+	  Sport.where("id > ?", self.id).first
+	end
 end

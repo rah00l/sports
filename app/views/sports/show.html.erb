@@ -185,8 +185,17 @@
 					</div>
 				</div>
 			</div>
-			<a href="detail1.html" class="nav previous"><span class="fa fa-chevron-left"></span></a>
-			<a href="detail2.html" class="nav next"><span class="fa fa-chevron-right"></span></a>
+			<% if @prev.present? %>
+				<%= link_to sport_path(@prev), class: "nav previous" do %>
+				    <span class="fa fa-chevron-left"></span>
+				<% end %>
+			<% end %>
+
+			<% if @next.present? %>
+				<%= link_to sport_path(@next), class: "nav next" do %>
+				    <span class="fa fa-chevron-right"></span>
+				<% end %>
+			<% end %>
 		</div>
 	</div>
 </body>
