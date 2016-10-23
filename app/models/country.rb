@@ -4,4 +4,5 @@ class Country < ApplicationRecord
 	# Added countrywise sport based relationship
 	has_many :countrywise_sports, dependent: :destroy
 	has_many :sports, through: :countrywise_sports
+	belongs_to :continent
 end
