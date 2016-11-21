@@ -5,10 +5,10 @@ ActiveAdmin.register Sport do
 #
 # permit_params :list, :of, :attributes, :on, :model
 	permit_params :name, :basic_info, :history, :category_id, :nation_id,
-                info_box_attributes: [:first_played, :highest_governing_body, :players,
+                info_box_attributes: [:id, :first_played, :highest_governing_body, :players,
                   :playing_time, :scoring, :presence],
-                attachments_attributes: :file,
-                players_attributes: :name
+                attachments_attributes: [:id, :file],
+                players_attributes: [:id, :name]
 #
 # or
 #
@@ -18,7 +18,7 @@ ActiveAdmin.register Sport do
 #   permitted
 # end
 form do |f|
-  f.inputs "Sport Details" do
+  f.inputs "Sport Details", multipart: true do
     f.input :name
     f.input :basic_info#, as: :html_editor
     f.input :history#, as: :html_editor
@@ -28,7 +28,7 @@ form do |f|
     # f.input :user_id, as: :select, collection: User.all.map{|usr| [usr.email, usr.id]} for nation
     # f.input :user_id, as: :select, collection: User.all.map{|usr| [usr.email, usr.id]}
     # f.input :publish, as: :boolean,
-    #                   required: false,
+    #                   required: fals  e,
     #                   label: 'Check this box to allow publish this post'
     # f.input :published_at, as: :datepicker
     # f.input :player_ids, as: :select, collection: Player.all, multiple: true
@@ -48,9 +48,9 @@ form do |f|
     a.input :file
   end
 
-  f.has_many :players do |a|
-    a.input :id, as: :select, collection: Player.all, multiple: true
-  end
+  # f.has_many :players do |a|
+  #   a.input :id, as: :select, collection: Player.all, multiple: true
+  # end
 
   f.actions
 end
