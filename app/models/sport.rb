@@ -1,4 +1,7 @@
 class Sport < ApplicationRecord
+	extend FriendlyId
+	friendly_id :name, use: [:slugged, :history]
+
 	# Associations
 	belongs_to :category
 	has_one :info_box, dependent: :destroy
