@@ -18,7 +18,7 @@ class Sport < ApplicationRecord
 	accepts_nested_attributes_for :players
 
 	def previous
-	  Sport.where("id < ?", self.id).first
+	  Sport.where("id < ?", self.id).last
 	end
 
 	def next
