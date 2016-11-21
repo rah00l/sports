@@ -9,7 +9,7 @@
 			<div class="innr">
 				<div class="row">
 					<div class="image fit col-md-12">
-						<%= image_tag "pic05.jpg" %>
+						<%= image_tag @sport.attachments.last.file.url(:main).split('/').last  if @sport.attachments.present? %>
 					</div>
 				</div>
 				<div class="row">
