@@ -33,7 +33,7 @@ gem 'activeadmin', github: 'activeadmin'
 # gem provides a simple and extremely flexible way to upload files
 gem 'carrierwave'
 # CarrierWave comes with a small library to make manipulating images with RMagick easie
-gem 'rmagick'
+gem "mini_magick"
 # friendly_id allows you to create pretty URL’s and work with human-friendly strings as if they were numeric ids for ActiveRecord models
 gem 'friendly_id'
 
