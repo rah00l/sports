@@ -232,3 +232,10 @@ page = Nokogiri::HTML(open('https://en.wikipedia.org/wiki/Category:Kabaddi_by_co
 page.css('.mw-category-group+ .mw-category-group .CategoryTreeLabelCategory').children.map(&:text).compact.collect(&:strip)
 
 end
+
+
+===================================================================================================
+:::::::: Issues ::::::::
+
+slug not updating once sport name updated
+
