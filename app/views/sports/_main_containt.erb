@@ -1,0 +1,29 @@
+<!-- <div class="sport-box sports" data-no-turbolink> --> 
+  <div id="main">
+    <div class="inner">
+      <div class="columns">
+
+        <!-- Column 1 (horizontal, vertical, horizontal, vertical) -->
+        <!-- <div class="image fit"> -->
+          <%#= link_to image_tag("pic01.jpg"), sport_path(Sport.second) %>
+          <%#= link_to image_tag(Sport.first.attachments.last.file.url(:horizontal).split('/').last), 
+              sport_path(Sport.first) %>
+        <!-- </div> -->
+        <!-- <div class="image fit"> -->
+          <%#= link_to image_tag(Sport.third.attachments.last.file.url(:vertical).split('/').last), 
+              sport_path(Sport.third) %>
+        <!-- </div> -->
+<% @sports.each do |sport| %>
+        <div class="image fit">
+          <!-- <a href="detail1.html"><%#= image_tag "pic03.jpg" %></a> -->
+      <%= link_to image_tag(sport.attachments.last.file.url(:vertical).split('/').last), sport_path(sport) %>
+        </div>
+<% end %>
+<!--         <div class="image fit">
+          <a href="detail1.html"><%#= image_tag "pic04.jpg" %></a>
+        </div> -->
+
+      </div>
+    </div>
+  </div>
+<!-- </div>-->

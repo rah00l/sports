@@ -37,6 +37,8 @@ gem "mini_magick"
 # friendly_id allows you to create pretty URL’s and work with human-friendly strings as if they were numeric ids for ActiveRecord models
 gem 'friendly_id'
 
+gem 'will_paginate'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri

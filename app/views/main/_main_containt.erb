@@ -1,68 +1,30 @@
-  <div id="main">
-    <div class="inner">
-      <div class="columns">
+<!-- <div class="sport-box sports" data-no-turbolink> -->
+<div id="main">
+  <div class="inner">
+    <div class="columns">
 
-        <!-- Column 1 (horizontal, vertical, horizontal, vertical) -->
-        <div class="image fit">
-          <!-- <a href="detail1.html"><%#= image_tag "pic01.jpg" %></a> -->
-          <%#= link_to image_tag("pic01.jpg"), sport_path(Sport.second) %>
-          <%= link_to image_tag(Sport.first.attachments.last.file.url(:horizontal).split('/').last), 
-              sport_path(Sport.first) %>
-        </div>
-        <div class="image fit">
-          <!-- <a href="detail1.html"><%#= image_tag "pic02.jpg" %></a> -->
-          <%= link_to image_tag(Sport.third.attachments.last.file.url(:vertical).split('/').last), 
-              sport_path(Sport.third) %>
-        </div>
-        <div class="image fit">
-          <a href="detail1.html"><%= image_tag "pic03.jpg" %></a>
-        </div>
-        <div class="image fit">
-          <a href="detail1.html"><%= image_tag "pic04.jpg" %></a>
-        </div>
-
-        <!-- Column 2 (vertical, horizontal, vertical, horizontal) -->
-        <div class="image fit">
-          <a href="detail1.html"><%= image_tag "pic06.jpg" %></a>
-        </div>
-        <div class="image fit">
-          <a href="detail1.html"><%= image_tag "pic05.jpg" %></a>
-        </div>
-        <div class="image fit">
-          <a href="detail1.html"><%= image_tag "pic08.jpg" %></a>
-        </div>
-        <div class="image fit">
-          <a href="detail1.html"><%= image_tag "pic07.jpg" %></a>
-        </div>
-
-        <!-- Column 3 (horizontal, vertical, horizontal, vertical) -->
-        <div class="image fit">
-          <a href="detail1.html"><%= image_tag "pic09.jpg" %></a>
-        </div>
-        <div class="image fit">
-          <a href="detail1.html"><%= image_tag "pic12.jpg" %></a>
-        </div>
-        <div class="image fit">
-          <a href="detail1.html"><%= image_tag "pic11.jpg" %></a>
-        </div>
-        <div class="image fit">
-          <a href="detail1.html"><%= image_tag "pic10.jpg" %></a>
-        </div>
-
-        <!-- Column 4 (vertical, horizontal, vertical, horizontal) -->
-        <div class="image fit">
-          <a href="detail1.html"><%= image_tag "pic13.jpg" %></a>
-        </div>
-        <div class="image fit">
-          <a href="detail1.html"><%= image_tag "pic14.jpg" %></a>
-        </div>
-        <div class="image fit">
-          <a href="detail1.html"><%= image_tag "pic15.jpg" %></a>
-        </div>
-        <div class="image fit">
-          <a href="detail1.html"><%= image_tag "pic16.jpg" %></a>
-        </div>
+      <!-- Column 1 (horizontal, vertical, horizontal, vertical) -->
+      <!-- <div class="image fit"> -->
+      <%#= link_to image_tag("pic01.jpg"), sport_path(Sport.second) %>
+          <%#= link_to image_tag(Sport.first.attachments.last.file.url(:horizontal).split('/').last),
+          sport_path(Sport.first) %>
+          <!-- </div> -->
+          <!-- <div class="image fit"> -->
+          <%#= link_to image_tag(Sport.third.attachments.last.file.url(:vertical).split('/').last),
+          sport_path(Sport.third) %>
+          <!-- </div> -->
+          <% @sports.each do |sport| %>
+          <div class="image fit">
+            <!-- <a href="detail1.html"><%#= image_tag "pic03.jpg" %></a> -->
+            <%# image_style = sport.id%2 == 0 ? :horizontal : :vertical %>
+            <%= link_to image_tag(sport.attachments.last.file.url(:horizontal).split('/').last), sport_path(sport) %>
+          </div>
+          <% end %>
+<!--         <div class="image fit">
+          <a href="detail1.html"><%#= image_tag "pic04.jpg" %></a>
+        </div> -->
 
       </div>
     </div>
   </div>
+<!-- </div>-->
