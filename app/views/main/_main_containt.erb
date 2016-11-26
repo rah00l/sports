@@ -17,7 +17,7 @@
           <div class="image fit">
             <!-- <a href="detail1.html"><%#= image_tag "pic03.jpg" %></a> -->
             <%# image_style = sport.id%2 == 0 ? :horizontal : :vertical %>
-            <%= link_to image_tag(sport.attachments.last.file.url(:horizontal).split('/').last), sport_path(sport) %>
+            <%= link_to image_tag(sport.attachments.last.file.url(:vertical).split('/').last), sport_path(sport) %>
           </div>
           <% end %>
 <!--         <div class="image fit">
