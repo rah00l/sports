@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 top-margin-50">
+      <%#= render 'alphabetical_pagination' %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2">
+      <%= render 'shared/sidebar' %>
+    </div>
+
+    <div class="col-md-10" id="sports">
+    <% @countries.each do |country|%>
+      <h2 class="custom-text-color font-bold"><%= country.name %></h2>
+      <% @sports = country.sports %>
+      <%= render 'sports/sport', sports: @sports %>
+    <% end %>
+    </div>
+
+  </div>
+  <p>
+    <%= will_paginate @countries %>
+  </p>
+</div>
