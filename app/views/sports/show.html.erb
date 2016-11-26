@@ -15,14 +15,14 @@
 				<div class="row">
 					<div class="content col-md-9">
 						<header>
-							<h2><%= @sport.name %><small> Stop dating, Start batting</small></h2>
+							<h2 class="font-bold"><%= @sport.name %></h2>
 						</header>
 						<div class="row">
 							<!-- Vcart information -->
 							<div class="col-md-5">
 								<div class="panel panel-default">
 								  <!-- Default panel contents -->
-								  <div class="panel-heading">Vcard Sport Information</div>
+								  <div class="panel-heading font-bold">Vcard Sport Information</div>
 
 								  <!-- Table -->
 								  <table class="table">
@@ -69,13 +69,13 @@
 						</div>
 
 						<!-- History of sport -->
-						<h1 class="custom-text-color" class="custom-text-color">History</h1>
+						<h1 class="custom-text-color font-bold">History</h1>
 
 						<p><%= @sport.history %></p>
 						<!-- History of sport -->
 
 						<!-- Rules & regulations of sport -->
-						<h1 class="custom-text-color">Rules & regulations</h1>
+						<h1 class="custom-text-color font-bold">Rules & regulations</h1>
 						<ul class="">
 							<% @sport.rules.each do |rule| %>
 							   <li class=""><%= rule.description %></li>
@@ -83,31 +83,19 @@
 						</ul>
 						<!-- Rules & regulations of sport -->
 
-						<h1 class="custom-text-color">Popularity - List of <%= @sport.name %> Playing Countries</h1>
+						<h1 class="custom-text-color font-bold">Popularity - List of <%= @sport.name %> Playing Countries</h1>
 						More than <%= @sport.countries.size %> countries that play <%= @sport.name %>.
 							<div class="well">
 								<%= @sport.countries.map(&:name).join(', ') %>
 							</div>
-
 					</div>
 					<div class="col-md-3 top-margin-50">
-						<div class="list-group">
-							<span class="list-group-item active">
-								Sports by
-							</span>
-							<!-- <a href="#" class="list-group-item">Gallery</a> -->
-							<%= link_to 'Gallery', root_path, class: "list-group-item" %>
-							<a href="#" class="list-group-item">A to Z</a>
-							<a href="#" class="list-group-item">By type</a>
-							<a href="#" class="list-group-item">By continent</a>
-							<a href="#" class="list-group-item">By country</a>
-							<a href="#" class="list-group-item">All</a>
-						</div>
+						<%= render 'shared/sidebar' %>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-12">
-					<h1 class="custom-text-color">Most popular players</h1>
+					<h1 class="custom-text-color font-bold">Most popular players</h1>
 						<div class="well">
 							<div id="myCarousel" class="carousel slide">
 
