@@ -1,4 +1,5 @@
 class SportsController < ApplicationController
+  before_action :authenticate_user! ,:except => [:index, :new, :create, :show, :edit, :update, :destroy]
   before_action :set_sport, only: [:show, :edit, :update, :destroy]
   before_action :alphabetical_sports_list, only: :index
   # layout 'sport_page', :only => [:show]
@@ -7,9 +8,9 @@ class SportsController < ApplicationController
   def index
      @letter = params[:letter] ? ((params[:letter] == 'all') ? '' : params[:letter]) : ''
     if params[:letter] && !params[:letter].eql?('All')
-      @sports = Sport.by_letter(params[:letter]).page(params[:page]).per_page(10)
+      @sports = Sport.includes(:attachments).by_letter(params[:letter]).page(params[:page]).per_page(10)
     else
-      @sports = Sport.page(params[:page]).per_page(20)
+      @sports = Sport.includes(:attachments).page(params[:page]).per_page(20)
     end
     respond_to do |format|
       format.html
