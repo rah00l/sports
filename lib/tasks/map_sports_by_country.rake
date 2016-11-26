@@ -1,6 +1,6 @@
-namespace :go_all do
-	desc "Geocode to get latitude, longitude and address"
-	task :cheat_script1 => :environment do
+namespace :sports do
+	desc "Map sports by country"
+	task :map_by_country => :environment do
 			## All Go cheat script ###
 	# Sport list from rule
 	all_sports = Nokogiri::HTML(open("http://www.rulesofsport.com"))

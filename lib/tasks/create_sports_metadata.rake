@@ -1,6 +1,6 @@
-namespace :go_all do
-	desc "Geocode to get latitude, longitude and address"
-	task :cheat_script => :environment do
+namespace :sports do
+	desc "Create sports and it's metadata"
+	task :create_metadata => :environment do
 		## All Go cheat script ###
 		Sport.destroy_all
 		puts '....'*100
@@ -43,7 +43,7 @@ namespace :go_all do
 			end
 			history = rules_page.css('p:nth-child(5) , p:nth-child(4) , .itemMainImage+ p').text
 
-			sprt = Sport.create name: sport_name, basic_info: basic_info, history: history
+			sprt = Sport.create name: sport_name.capitalize, basic_info: basic_info, history: history
 
 			rules = rules_page.css('h2+ ul').present? ? rules_page.css('h2+ ul') :  rules_page.css('#content li')
 			rules.search('li').each { |rule| Rule.create name: "Rule of sport ", description: rule.text, sport_id: sprt.id }
