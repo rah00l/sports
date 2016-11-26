@@ -1,0 +1,22 @@
+<nav aria-label="Page navigation">
+	<ul class="custom-pagination">
+		<li>
+			<a href="#" aria-label="Previous">
+				<span aria-hidden="true">&laquo;</span>
+			</a>
+		</li>
+		<% letters = @first_letters.map{|a| a.upcase }.uniq.insert(0, 'All') %>
+		<% letters.each do |letter| %>
+		<% if letter.eql?('All') %>
+		<%= content_tag :li, link_to(letter, sports_path(letter: 'All'), :title => "Pagination by letter: #{letter}") %>
+		<% else %>
+		<%= content_tag :li, link_to(letter, sports_path(letter: letter), :title => "Pagination by letter: #{letter}") %>
+		<% end %>
+		<% end %>
+		<li>
+			<a href="#" aria-label="Next">
+				<span aria-hidden="true">&raquo;</span>
+			</a>
+		</li>
+	</ul>
+</nav>

@@ -1,0 +1,7 @@
+$('#sports').append("<%= j render 'sport' %>");
+<% if @sports.next_page %>
+$('.pagination').replaceWith('<%= j will_paginate @sports %>');
+<% else %>
+$(window).off('scroll');
+$('.pagination').remove();
+<% end %>

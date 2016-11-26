@@ -1545,3 +1545,100 @@
 	.font-bold {
 		font-weight: bold;
 	}
+
+	.custom-pagination {
+	  display: inline-block;
+	  padding-left: 0;
+	  margin: 20px 0;
+	  border-radius: 4px;
+	}
+	.custom-pagination > li {
+	  display: inline;
+	}
+	.custom-pagination > li > a,
+	.custom-pagination > li > span {
+	  position: relative;
+	  float: left;
+	  padding: 6px 12px;
+	  margin-left: -1px;
+	  line-height: 1.42857143;
+	  color: #337ab7;
+	  text-decoration: none;
+	  background-color: #fff;
+	  border: 1px solid #ddd;
+	}
+	.custom-pagination > li:first-child > a,
+	.custom-pagination > li:first-child > span {
+	  margin-left: 0;
+	  border-top-left-radius: 4px;
+	  border-bottom-left-radius: 4px;
+	}
+	.custom-pagination > li:last-child > a,
+	.custom-pagination > li:last-child > span {
+	  border-top-right-radius: 4px;
+	  border-bottom-right-radius: 4px;
+	}
+	.custom-pagination > li > a:hover,
+	.custom-pagination > li > span:hover,
+	.custom-pagination > li > a:focus,
+	.custom-pagination > li > span:focus {
+	  z-index: 2;
+	  color: #23527c;
+	  background-color: #eee;
+	  border-color: #ddd;
+	}
+	.custom-pagination > .active > a,
+	.custom-pagination > .active > span,
+	.custom-pagination > .active > a:hover,
+	.custom-pagination > .active > span:hover,
+	.custom-pagination > .active > a:focus,
+	.custom-pagination > .active > span:focus {
+	  z-index: 3;
+	  color: #fff;
+	  cursor: default;
+	  background-color: #337ab7;
+	  border-color: #337ab7;
+	}
+	.custom-pagination > .disabled > span,
+	.custom-pagination > .disabled > span:hover,
+	.custom-pagination > .disabled > span:focus,
+	.custom-pagination > .disabled > a,
+	.custom-pagination > .disabled > a:hover,
+	.custom-pagination > .disabled > a:focus {
+	  color: #777;
+	  cursor: not-allowed;
+	  background-color: #fff;
+	  border-color: #ddd;
+	}
+	.custom-pagination-lg > li > a,
+	.custom-pagination-lg > li > span {
+	  padding: 10px 16px;
+	  font-size: 18px;
+	  line-height: 1.3333333;
+	}
+	.custom-pagination-lg > li:first-child > a,
+	.custom-pagination-lg > li:first-child > span {
+	  border-top-left-radius: 6px;
+	  border-bottom-left-radius: 6px;
+	}
+	.custom-pagination-lg > li:last-child > a,
+	.custom-pagination-lg > li:last-child > span {
+	  border-top-right-radius: 6px;
+	  border-bottom-right-radius: 6px;
+	}
+	.custom-pagination-sm > li > a,
+	.custom-pagination-sm > li > span {
+	  padding: 5px 10px;
+	  font-size: 12px;
+	  line-height: 1.5;
+	}
+	.custom-pagination-sm > li:first-child > a,
+	.custom-pagination-sm > li:first-child > span {
+	  border-top-left-radius: 3px;
+	  border-bottom-left-radius: 3px;
+	}
+	.custom-pagination-sm > li:last-child > a,
+	.custom-pagination-sm > li:last-child > span {
+	  border-top-right-radius: 3px;
+	  border-bottom-right-radius: 3px;
+	}

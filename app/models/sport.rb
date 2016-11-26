@@ -2,6 +2,7 @@ class Sport < ApplicationRecord
 	extend FriendlyId
 	friendly_id :name, use: [:slugged, :history]
 
+	scope :by_letter, -> (letter) { where("sports.name LIKE ?", "#{letter}%") }
 	# Associations
 	belongs_to :category
 	has_one :info_box, dependent: :destroy

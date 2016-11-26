@@ -1,10 +1,20 @@
 class SportsController < ApplicationController
   before_action :set_sport, only: [:show, :edit, :update, :destroy]
+  before_action :alphabetical_sports_list, only: :index
   # layout 'sport_page', :only => [:show]
   # GET /sports
   # GET /sports.json
   def index
-    @sports = Sport.all
+     @letter = params[:letter] ? ((params[:letter] == 'all') ? '' : params[:letter]) : ''
+    if params[:letter] && !params[:letter].eql?('All')
+      @sports = Sport.by_letter(params[:letter]).page(params[:page]).per_page(10)
+    else
+      @sports = Sport.page(params[:page]).per_page(20)
+    end
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /sports/1
@@ -72,5 +82,11 @@ class SportsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def sport_params
       params.fetch(:sport, {})
+    end
+
+    def alphabetical_sports_list
+      all_sports = Sport.pluck(:name)
+      @first_letters = []
+      all_sports.each {|word| @first_letters << word[0,1]}
     end
 end
