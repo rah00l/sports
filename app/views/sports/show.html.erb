@@ -18,51 +18,17 @@
 							<h2 class="font-bold"><%= @sport.name %></h2>
 						</header>
 						<div class="row">
-							<!-- Vcart information -->
-							<div class="col-md-5">
-								<div class="panel panel-default">
-								  <!-- Default panel contents -->
-								  <div class="panel-heading font-bold">Vcard Sport Information</div>
-
-								  <!-- Table -->
-								  <table class="table">
-								      <tr>
-								        <th>First Played</th>
-								        <td>1920</td>
-								      </tr>
-								    <tbody>
-								      <tr>
-								        <th scope="row">Highest governing body</th>
-								        <td>FIBA</td>
-								      </tr>
-								      <tr>
-								        <th scope="row">Type</th>
-								        <td>Indoor</td>
-								      </tr>
-								      <tr>
-								        <th scope="row">Country or region</th>
-								        <td>Worldwide</td>
-								      </tr>
-								      <tr>
-								        <th scope="row">Players</th>
-								        <td>11</td>
-								      </tr>
-								      <tr>
-								        <th scope="row">Playing time</th>
-								        <td>90 mins</td>
-								      </tr>
-								      <tr>
-								        <th scope="row">Presence</th>
-								        <td>Olympics</td>
-								      </tr>
-								    </tbody>
-								  </table>
+							<% class_name = @sport.info_box.present? ? 'col-md-5' : 'col-md-12' %>
+							<% if @sport.info_box.present?%>
+								<!-- Vcart information -->
+								<div class="col-md-5">
+									<%= render 'sports_vcard' %>
 								</div>
-							</div>
-							<!-- Vcart information -->
-
+								<!-- Vcart information -->
+								<% end %>
 							<!-- Basic Inforation about sport -->
-							<div class="col-md-7">
+							<div class="<%= class_name %>">
+								<h1 class="custom-text-color font-bold">Basics</h1>
 								<p><%= @sport.basic_info %></p>
 							</div>
 							<!-- Basic Inforation about sport -->

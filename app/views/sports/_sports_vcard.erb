@@ -1,0 +1,39 @@
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading font-bold">Sport Information</div>
+
+  <!-- Table -->
+  <table class="table table-bordered">
+    <tbody>
+      <tr>
+        <th class='font-bold'>First Played</th>
+        <td><%= @sport.info_box.first_played %></td>
+      </tr>
+      <tr>
+        <th class='font-bold' scope="row">Highest governing body</th>
+        <td><%= @sport.info_box.highest_governing_body %></td>
+      </tr>
+      <tr>
+        <th class='font-bold' scope="row">Type</th>
+        <td>Indoor</td>
+      </tr>
+      <tr>
+        <th class='font-bold' scope="row">Equipments</th>
+        <td>
+          <% @sport.equipment.each do |equipment| %>
+            <%= link_to equipment.name, equipment_path(equipment), remote: true, data: { toggle: 'modal', target: '.bd-example-modal-lg'} %><%#= @sport.equipment_list %>
+          <% end %>  
+        </td>
+      </tr>
+      <tr>
+        <th class='font-bold' scope="row">Players</th>
+        <td><%= @sport.info_box.team_members %></td>
+      </tr>
+      <tr>
+        <th class='font-bold' scope="row">Olympics</th>
+        <td><%= @sport.info_box.olympic %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
