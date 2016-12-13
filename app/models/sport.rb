@@ -1,6 +1,7 @@
 class Sport < ApplicationRecord
 	extend FriendlyId
 	friendly_id :name, use: [:slugged, :history]
+	default_scope { order(:name) }
 
 	scope :by_letter, -> (letter) { where("sports.name LIKE ?", "#{letter}%") }
 	# Associations

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root to: 'main#index'
   resources :sports
 	resources :countries
+	resources :equipment
   # get "sports(/:letter)" => "sports#index", as: :words_pagination
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
