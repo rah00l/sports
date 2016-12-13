@@ -7,6 +7,10 @@ class CountriesController < ApplicationController
   def index
     # @countries = Country.all
     @countries = Country.includes(:sports).page(params[:page]).per_page(20)
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /countries/1
