@@ -21,7 +21,8 @@
         <th class='font-bold' scope="row">Equipments</th>
         <td>
           <% @sport.equipment.each do |equipment| %>
-            <%= link_to equipment.name, equipment_path(equipment), remote: true, data: { toggle: 'modal', target: '.bd-example-modal-lg'} %><%#= @sport.equipment_list %>
+            <!-- Link trigger modal -->
+            <%= link_to_if equipment.description, equipment.name, equipment_path(equipment), remote: true, data: {toggle: "modal", target: "#equipmentModal"} %>
           <% end %>  
         </td>
       </tr>
@@ -37,3 +38,4 @@
   </table>
 </div>
 
+<%= render "layouts/modal" %>

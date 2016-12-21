@@ -1,4 +1,6 @@
-<script type="text/javascript">
-	alert('hello');
-</script>
-//$(".equipment_details").html('<%= j render "equipment" %>');
+$modal = $('.modal'),
+$modalBody = $('.modal .modal-body'),
+$modalHeading = $('.modal .modal-title');
+$modalHeading.html("<%= @equipment.name %>");
+$modalBody.html("<%= j render @equipment %>");
+$modal.modal();
