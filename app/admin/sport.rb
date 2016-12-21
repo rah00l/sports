@@ -38,10 +38,10 @@ form do |f|
   f.inputs "More Information", for: [:info_box, f.object.info_box || InfoBox.new] do |s|
     s.input :first_played, as: :datepicker
     s.input :highest_governing_body
-    s.input :players
+    # s.input :players
     s.input :playing_time
     s.input :scoring
-    s.input :presence
+    s.input :olympic
   end
 
   f.has_many :attachments do |a|
