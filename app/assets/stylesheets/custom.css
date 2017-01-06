@@ -1642,3 +1642,8 @@
 	  border-top-right-radius: 3px;
 	  border-bottom-right-radius: 3px;
 	}
+
+	.modal-body {
+	    max-height: calc(100vh - 212px);
+	    overflow-y: auto;
+	}
