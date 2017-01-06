@@ -4,4 +4,5 @@ class Equipment < ApplicationRecord
 
 	# Validation
 	validates :name, presence: true#, uniqueness: true
+	has_many :attachments, as: :attachable
 end

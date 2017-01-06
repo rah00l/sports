@@ -5,7 +5,7 @@ namespace :sports do
 		Sport.all.each do |sport|
 			sport_name = sport.name.downcase.tr(' ', '_')
 			# file: string, attachable_id: integer, attachable_type: string
-			sport_image = Rails.root.join("db/images/#{sport_name}.jpg")
+			sport_image = Rails.root.join("db/sports_images/#{sport_name}.jpg")
 			# puts sport_image
 			if File.exist?(sport_image)
 				sport.attachments.destroy_all
