@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12 top-margin-50">
-      <%#= render 'alphabetical_pagination' %>
+      <h2 class="custom-text-color font-bold text-center">All Countries (<%= @countries.size%>)</h2>
     </div>
   </div>
   <div class="row">
@@ -11,14 +11,18 @@
 
     <div class="col-md-10" id="sports">
     <% @countries.each do |country|%>
-      <h2 class="custom-text-color font-bold"><%= country.name %></h2>
-      <% @sports = country.sports %>
-      <%= render 'sports/sport', sports: @sports %>
+      <span class="label label-<%= random_class_name %>"><%= link_to country.name, country_path(country) if country.sports.size > 0 %></span>
+
+<!--       <span class="tag tag-default">Default</span>
+      <span class="tag tag-primary">Primary</span>
+      <span class="tag tag-success">Success</span>
+      <span class="tag tag-info">Info</span>
+      <span class="tag tag-warning">Warning</span>
+      <span class="tag tag-danger">Danger</span> -->
     <% end %>
     </div>
 
   </div>
   <p>
-    <%= will_paginate @countries %>
   </p>
 </div>

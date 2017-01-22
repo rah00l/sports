@@ -6,7 +6,7 @@ class CountriesController < ApplicationController
   # GET /countries.json
   def index
     # @countries = Country.all
-    @countries = Country.includes(:sports).page(params[:page]).per_page(20)
+    @countries = Country.includes(:sports)#.page(params[:page]).per_page(20)
     respond_to do |format|
       format.html
       format.js
@@ -16,6 +16,11 @@ class CountriesController < ApplicationController
   # GET /countries/1
   # GET /countries/1.json
   def show
+    @sports = @country.sports.page(params[:page]).per_page(5)
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /countries/new
