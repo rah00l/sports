@@ -10,15 +10,15 @@ namespace :sports do
 		sports_list = all_sports.search(".mod-articles-category-title").children.map(&:text).compact.collect(&:strip)
 		# sports_list = ['TABLE TENNIS (PING PONG)']
 		sports_list.each do |sport|
-		# sport = 'MMA (Mixed Martial Arts)'
+		# sport = 'Kin-Ball'
 			begin
-				# puts sport
+				puts sport
 				sport_wiki = get_sport_name_wiki(sport)
 				# byebug
 				puts sport_wiki
 				sport_wiki = 'Mixed martial arts' if sport_wiki.eql?('MMA (Mixed Martial Arts)')
 				sport_wiki = 'Table tennis' if sport_wiki.eql?('Table Tennis (Ping Pong)')
-				sport_wiki = sport_wiki.eql?('kin-Ball') ? sport_wiki : sport_wiki.downcase.tr(' ', '_')
+				sport_wiki = sport_wiki.eql?('Kin-Ball') ? sport_wiki : sport_wiki.downcase.tr(' ', '_')
 				puts '---------'*5
 				puts sport_wiki
 				puts '---------'*5
@@ -53,10 +53,6 @@ namespace :sports do
 			history = rules_page.css('p:nth-child(5) , p:nth-child(4) , .itemMainImage+ p').text
 
 			sprt = Sport.create name: sport_name.capitalize, basic_info: basic_info, history: history
-
-			## tags <-> sports type
-			# .vcard tr:nth-child(7) td
-			# .vcard tr:nth-child(8) td
 
 			rules = rules_page.css('h2+ ul').present? ? rules_page.css('h2+ ul') :  rules_page.css('#content li')
 			rules.search('li').each { |rule| Rule.create name: "Rule of sport ", description: rule.text, sport_id: sprt.id }
@@ -101,20 +97,6 @@ def get_proper_sport_name(sport)
 		sport
 	end
 end
-
-# Archery .tright+ p
-# 'Field_hockey' || 'Netball' || 'Pickleball' || 'Platform_tennis' || 'Squash_(sport)' || 'Ultimate_(sport)'
-# 'Kin-Ball' --> p:nth-child(2)
-# 'Tee-ball' --> p:nth-child(3) , p:nth-child(2)
-#Field_hockey .vcard+ p
-# Kin-Ball - p:nth-child(2)
-# Netball - .vcard+ p
-# Pickleball - .vcard+ p
-# Platform_tennis - .vcard+ p
-# Squash_(sport) - .vcard+ p
-# Tee-ball - p:nth-child(3) , p:nth-child(2)
-# Ultimate_(sport) - .vcard+ p
-
 
 def basic_info_css_selector(sport_name)
 	case sport_name

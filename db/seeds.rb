@@ -15,7 +15,7 @@ admin: true
 puts 'Created admin user to start application with one sample user...!'
 
 
-Country.delete_all
+Country.destroy_all
 puts "Creating default countries..."
 open("http://openconcept.ca/sites/openconcept.ca/files/country_code_drupal_0.txt") do |countries|
   countries.read.each_line do |country|
