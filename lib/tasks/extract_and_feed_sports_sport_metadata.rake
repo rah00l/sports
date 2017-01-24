@@ -7,10 +7,13 @@ namespace :sports do
 				#sport_name = "baseball"sport_name = 'basketball' sport_name = "American Football"
 				# sport_name = "archery" sport_name = "arm wrestling"
 				# sport_name = "bar billiards"
-				# sport_name = "wiffle ball"
+				# sport_name = "Table tennis ping pong"
 				puts "Sport name is #{sport_name}..........."
 				wiki_sport = get_sport_name_wiki(sport_name)
-				wiki_sport = sport_name.downcase.tr(' ', '_') unless (sport_name.eql?('Padel') || sport_name.eql?('Squash') || sport_name.eql?('table tennis ping pong'))
+				puts wiki_sport
+				wiki_sport = sport_name.downcase.tr(' ', '_') unless (sport_name.eql?('Padel') || sport_name.eql?('Squash') || sport_name.eql?('Table tennis ping pong') || sport_name.eql?('Hockey field') || sport_name.eql?("Kin-ball") || sport_name.eql?('Mma mixed martial arts'))
+				puts wiki_sport
+				puts "https://en.wikipedia.org/wiki/#{wiki_sport}"
 				doc = Nokogiri::HTML(open("https://en.wikipedia.org/wiki/#{wiki_sport}"))
 				table = doc.css('table.vcard').first
 				if table.present?
@@ -54,10 +57,10 @@ namespace :sports do
 	def get_sport_name_wiki(sport)
 		sport_name = case sport
 		when 'Hockey field'
-			"Field hockey "
-		when 'Kin-Ball'
+			"Field_hockey"
+		when 'Kin-ball'
 			'kin-Ball'
-		when 'mma mixed martial arts'
+		when 'Mma mixed martial arts'
 			'Mixed_martial_arts'
 		when 'Padel'
 			'Padel_(sport)'
@@ -65,7 +68,7 @@ namespace :sports do
 			'Squash_(sport)'
 		when 'Ultimate Frisbee'
 			'Ultimate_(sport)'
-		when 'table tennis ping pong'
+		when 'Table tennis ping pong'
 			'Table_tennis'
 		else
 			sport
