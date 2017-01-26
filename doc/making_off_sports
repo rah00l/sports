@@ -1,3 +1,11 @@
+Reove copiled assets
+	rake assets:clobber --trace
+
+Generate coplied assets
+	rake assets:precompile --trace
+
+
+
 :::::::::::::::::::::::::::::::::::::::: Earlier ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 rahul@rahul-Satellite-L510 sports (develop) $git remote -v

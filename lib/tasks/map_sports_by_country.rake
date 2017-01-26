@@ -54,7 +54,7 @@ namespace :sports do
 			p countries_list.count
 			sport.countries.destroy_all if sport.present?
 			# sport.countries.count if sport.present?
-			sport.countries = countries_list if sport.present?
+			sport.countries << countries_list if sport.present?
 			sport.countries.count if sport.present?
 		end
 	end
