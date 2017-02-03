@@ -19,8 +19,8 @@ namespace :sports do
 	sports_by_country = sports_by_country_wiki_page.css('.mw-category-group+ .mw-category-group .CategoryTreeLabelCategory').children.map(&:text).compact.collect(&:strip)
 
 	common_sports = sports_by_country.map(&:downcase) & sports_list_by_country.map(&:downcase)
-	puts "Deleting all sport-countries mapping ....!"
-	CountrywiseSport.delete_all
+	# puts "Deleting all sport-countries mapping ....!"
+	# CountrywiseSport.delete_all
 	common_sports.each do |sport_by_country|
 
 	begin
@@ -51,14 +51,14 @@ namespace :sports do
 			countries.each {|country| Country.find_or_create_by name: country }
 			p countries.count
 			sport = Sport.find_by(name: sport_name)
+			# p "#{sport_name} ------------ #{sport.name}" if sport.present?
 			countries_list = Country.where(name: countries)
 			p countries_list.count
 			p "Before attach"
 			p sport.countries.count if sport.present?
 			sport.countries.destroy_all if sport.present?
-			# sport.countries.count if sport.present?
-
-			countries_list.each {|country| CountrywiseSport.find_or_create_by country_id: country.id, sport_id: sport.id } if sport.present?
+			# countries_list.each {|country| CountrywiseSport.find_or_create_by country_id: country.id, sport_id: sport.id } if sport.present?
+			sport.countries = countries_list if sport.present?
 			# sport.country_ids=(countries_list.collect(&:id)) if sport.present?
 			p "After attach"
 			sport.countries.count if sport.present?
