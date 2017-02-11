@@ -1,3 +1,4 @@
-<%= image_tag(equipment.attachments.last.file.url(:medium).split('/').last) %>
-<hr>
+<p class='equipment-medium'>
+	<%= image_tag(equipment.attachments.last.file.url(:medium).split('/').last) %>
+</p>
 <%= @equipment.description %>

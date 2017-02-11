@@ -1652,3 +1652,8 @@
 		margin-right: 5px;
 	  font-size: 15px;
 	}
+
+	.equipment-medium {
+    float: left;
+    margin-right: 30px;
+	}

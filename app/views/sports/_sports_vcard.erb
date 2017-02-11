@@ -22,7 +22,7 @@
         <td>
           <% @sport.equipment.each do |equipment| %>
             <!-- Link trigger modal -->
-            <%= link_to_if equipment.description, equipment.name, equipment_path(equipment), remote: true, data: {toggle: "modal", target: "#equipmentModal"} %>
+            <%= link_to_if !equipment.description.blank?, equipment.name, equipment_path(equipment), remote: true, data: {toggle: "modal", target: "#equipmentModal"} %>
           <% end %>  
         </td>
       </tr>

@@ -1,6 +1,6 @@
 $modal = $('.modal'),
 $modalBody = $('.modal .modal-body'),
 $modalHeading = $('.modal .modal-title');
-$modalHeading.html("<%= @equipment.name %>");
+$modalHeading.html("<%= @equipment.name.capitalize %>");
 $modalBody.html("<%= j render @equipment %>");
 $modal.modal();
