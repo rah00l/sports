@@ -7,6 +7,7 @@
    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
    <%= favicon_link_tag 'favicon.ico' %>
+   <%= render 'shared/google_analytics' %>
   </head>
 
   <body>
@@ -21,5 +22,6 @@
     <!-- Footer -->
       <%= render 'shared/footer' %>
     <!-- Footer -->
+    <%= render 'shared/google_analytics_pageview' %>
   </body>
 </html>
