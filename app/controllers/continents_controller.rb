@@ -11,8 +11,13 @@ class ContinentsController < ApplicationController
   # GET /continents/1
   # GET /continents/1.json
   def show
-    Continent.includes(countries: :sports).find()
-    @sports = @continent.countries.includes(:sports).page(params[:page]).per_page(5)
+    Continent.includes(countries: :sports).friendly.find(params[:id])
+    # @sports = @continent.countries.includes(:sports).page(params[:page]).per_page(5)
+    # debugger
+    # @sports=[]
+    # @continent.countries.each {|con| @sports << con.sports }
+    # byebug
+    # Sport.where(id: @sports.map(&:id))
     respond_to do |format|
       format.html
       format.js

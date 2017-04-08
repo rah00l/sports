@@ -1,4 +1,7 @@
 class Equipment < ApplicationRecord
+	extend FriendlyId
+	friendly_id :name, use: [:slugged, :history]
+
 	# Associations
 	belongs_to :sport
 
