@@ -35,22 +35,27 @@ class FileUploader < CarrierWave::Uploader::Base
   # Create different versions of your uploaded files:
   version :main do
     process :resize_to_fill => [1019, 510]
+    process :optimize
   end
 
   version :horizontal do
     process :resize_to_fill => [800, 533]
+    process :optimize
   end
 
   version :vertical do
     process :resize_to_fill => [533, 800]
+    process :optimize
   end
 
   version :thumb do
     process :resize_to_fit => [270, 170]
+    process :optimize
   end
 
   version :medium do
     process :resize_to_fit => [300, 300]
+    process :optimize
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
