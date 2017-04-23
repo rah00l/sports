@@ -6,6 +6,7 @@ class ContinentsController < ApplicationController
   # GET /continents.json
   def index
     @continents = Continent.order(:name)
+    @page_title = "Sports by continents"
   end
 
   # GET /continents/1

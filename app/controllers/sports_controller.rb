@@ -9,8 +9,10 @@ class SportsController < ApplicationController
      @letter = params[:letter] ? ((params[:letter] == 'all') ? '' : params[:letter]) : ''
     if params[:letter] && !params[:letter].eql?('All')
       @sports = Sport.includes(:attachments).by_letter(params[:letter]).page(params[:page]).per_page(10)
+      @page_title = "Sports Beginning With '#{params[:letter]}'"
     else
       @sports = Sport.includes(:attachments).page(params[:page]).per_page(20)
+      @page_title = "Alphabetical Index to Sports"
     end
     respond_to do |format|
       format.html
@@ -23,6 +25,7 @@ class SportsController < ApplicationController
   def show
     @prev = @sport.previous
     @next = @sport.next
+    @page_title = "Let's know more about - '#{@sport.name}'"
   end
 
   # GET /sports/new
