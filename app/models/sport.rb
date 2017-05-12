@@ -22,6 +22,24 @@ class Sport < ApplicationRecord
 	accepts_nested_attributes_for :attachments
 	accepts_nested_attributes_for :players
 
+	searchable do
+		text	:name, :basic_info, :history
+		text :info_box_first_played do
+			info_box.nil?? '' : (info_box.first_played.nil? ? '' : info_box.first_played)
+			info_box.nil?? '' : (info_box.highest_governing_body.nil? ? '' : info_box.highest_governing_body)
+			info_box.nil?? '' : (info_box.team_members.nil? ? '' : info_box.team_members)
+			info_box.nil?? '' : (info_box.olympic.nil? ? '' : info_box.olympic)
+		end
+
+		text :rules do
+			rules.map { |rule| rule.name }
+		end
+
+		text :equipment do
+			equipment.map { |equipment| [equipment.name, equipment.description] }
+		end
+	end
+
 	def previous
 		Sport.where("id < ?", self.id).last
 	end

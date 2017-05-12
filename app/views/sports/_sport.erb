@@ -1,15 +1,19 @@
-<% @sports.each do |sport| %>
-<div class="row">
-  <div class="col-md-3">
-    <%= link_to image_tag(sport.attachments.last.file.url(:thumb).split('/').last), sport_path(sport) %>
-  </div>
-  
-  <div class="col-md-1"></div>
+<% if @sports.blank? %>
+	No search result found
+<% else %>
+	<% @sports.each do |sport| %>
+	<div class="row">
+	  <div class="col-md-3">
+	    <%= link_to image_tag(sport.attachments.last.file.url(:thumb).split('/').last), sport_path(sport) %>
+	  </div>
 
-  <div class="col-md-8">
-    <h3 class="custom-text-color font-bold"><%= sport.name %></h3>
-    <%= truncate(sport.basic_info, length: 450) %>
-  </div>
-</div>
-<hr>
+	  <div class="col-md-1"></div>
+
+	  <div class="col-md-8">
+	    <h3 class="custom-text-color font-bold"><%= sport.name %></h3>
+	    <%= truncate(sport.basic_info, length: 450) %>
+	  </div>
+	</div>
+	<hr>
+	<% end %>
 <% end %>

@@ -5,11 +5,15 @@
 </head>
 <body>
 <div class="container">
-	<div class="row">
-		<div class="col-md-12 top-margin-50">
-			<%= render 'alphabetical_pagination' %>
+	<% if params[:search].blank? %>
+		<div class="row">
+			<div class="col-md-1">
+			</div>
+			<div class="col-md-11">
+				<%= render 'alphabetical_pagination' %>
+			</div>
 		</div>
-	</div>
+	<% end %>
 	<div class="row">
 		<div class="col-md-2">
 			<%= render 'shared/sidebar' %>

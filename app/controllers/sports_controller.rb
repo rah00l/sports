@@ -6,13 +6,29 @@ class SportsController < ApplicationController
   # GET /sports
   # GET /sports.json
   def index
-     @letter = params[:letter] ? ((params[:letter] == 'all') ? '' : params[:letter]) : ''
-    if params[:letter] && !params[:letter].eql?('All')
-      @sports = Sport.includes(:attachments).by_letter(params[:letter]).page(params[:page]).per_page(10)
-      @page_title = "Sports Beginning With '#{params[:letter]}'"
+    if params[:search].present?
+      search = Sunspot.search(Sport) do
+        fulltext params[:search]
+        # highlight :name
+        paginate(page: params[:page], per_page: 4)
+      end
+      @sports = search.results
+      # if @sports.blank?
+      #   respond_to do |format|
+      #   format.html { redirect_to sports_url, notice: 'No search result found' }
+      #   format.json { head :no_content }
+      #   end
+      # end
+      @page_title = "Search results for '#{params[:search]}'"
     else
-      @sports = Sport.includes(:attachments).page(params[:page]).per_page(20)
-      @page_title = "Alphabetical Index to Sports"
+      @letter = params[:letter] ? ((params[:letter] == 'all') ? '' : params[:letter]) : ''
+      if params[:letter] && !params[:letter].eql?('All')
+        @sports = Sport.includes(:attachments).by_letter(params[:letter]).page(params[:page]).per_page(10)
+        @page_title = "Sports Beginning With '#{params[:letter]}'"
+      else
+        @sports = Sport.includes(:attachments).page(params[:page]).per_page(20)
+        @page_title = "Alphabetical Index to Sports"
+      end
     end
     respond_to do |format|
       format.html

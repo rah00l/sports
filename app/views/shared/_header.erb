@@ -1,12 +1,32 @@
-<header id="custom-header" class='custom-hide'>
-  <div class="inner">
-<!--     <div class="content">
-      <h1>Radius</h1>
-      <h2>A fully responsive masonry-style<br />
-      portfolio template.</h2>
-      <a href="#" class="button big alt"><span>Let's Go</span></a>
-    </div> -->
-    <%= link_to '', root_path, class: 'custom-button custom-hidden' %>
-    <!-- <a href="#" class="button hidden"><span>Let's Go</span></a> -->
+<div class="row">
+	<div class="col-md-12">
+		<div class="col-md-7">
+		</div>
+		<div class="col-md-5">
+			<div class="col-md-12">
+			<%= form_tag sports_path, class: "navbar-form navbar-left", method: :get do %>
+			<div class="col-md-10">
+				<%= text_field_tag :search, params[:search], placeholder: 'Search' %>
+			</div>
+			<div class="col-md-2">
+				<%= submit_tag "Search", :name => nil, class: "btn btn-danger" %>
+			</div>
+		</p>
+		<% end %>
+			</div>
+	</div>
+
+	<header id="custom-header" class='custom-hide'>
+		<div class="inner">
+         <!--  <div class="content">
+          <h1>Radius</h1>
+          <h2>A fully responsive masonry-style<br />
+          portfolio template.</h2>
+          <a href="#" class="button big alt"><span>Let's Go</span></a>
+        </div> -->
+        <%= link_to '', root_path, class: 'custom-button custom-hidden' %>
+        <!-- <a href="#" class="button hidden"><span>Let's Go</span></a> -->
+      </div>
+    </header>
   </div>
-</header>
+</div>
