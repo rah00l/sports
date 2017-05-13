@@ -1657,3 +1657,6 @@
     float: left;
     margin-right: 30px;
 	}
+	.spacer-at-right {
+    margin-right: 5px; /* define margin as you see fit */
+	}

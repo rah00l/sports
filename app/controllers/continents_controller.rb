@@ -5,15 +5,17 @@ class ContinentsController < ApplicationController
   # GET /continents
   # GET /continents.json
   def index
-    @continents = Continent.order(:name)
+    # @continents = Continent.order(:name)
+    @continent_countries = Country.includes(:continent).group_by(&:continent)
     @page_title = "Sports by continents"
   end
 
   # GET /continents/1
   # GET /continents/1.json
   def show
-    Continent.includes(countries: :sports).friendly.find(params[:id])
-    # @sports = @continent.countries.includes(:sports).page(params[:page]).per_page(5)
+    # Continent.includes(countries: :sports).friendly.find(params[:id])
+    @sports = @continent.countries.includes(:sports).page(params[:page]).per_page(5)
+    # @countries = @continent.countries
     # debugger
     # @sports=[]
     # @continent.countries.each {|con| @sports << con.sports }
