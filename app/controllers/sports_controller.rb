@@ -10,7 +10,7 @@ class SportsController < ApplicationController
       search = Sunspot.search(Sport) do
         fulltext params[:search]
         # highlight :name
-        paginate(page: params[:page], per_page: 4)
+        paginate(page: params[:page], per_page: 10)
       end
       @sports = search.results
       # if @sports.blank?
@@ -26,7 +26,7 @@ class SportsController < ApplicationController
         @sports = Sport.includes(:attachments).by_letter(params[:letter]).page(params[:page]).per_page(10)
         @page_title = "Sports Beginning With '#{params[:letter]}'"
       else
-        @sports = Sport.includes(:attachments).page(params[:page]).per_page(20)
+        @sports = Sport.includes(:attachments).page(params[:page]).per_page(10)
         @page_title = "Alphabetical Index to Sports"
       end
     end
