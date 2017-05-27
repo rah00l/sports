@@ -1,30 +1,18 @@
-<!-- <div class="sport-box sports" data-no-turbolink> -->
-<div id="main">
-  <div class="inner">
-    <div class="columns">
-
-      <!-- Column 1 (horizontal, vertical, horizontal, vertical) -->
-      <!-- <div class="image fit"> -->
-      <%#= link_to image_tag("pic01.jpg"), sport_path(Sport.second) %>
-          <%#= link_to image_tag(Sport.first.attachments.last.file.url(:horizontal).split('/').last),
-          sport_path(Sport.first) %>
-          <!-- </div> -->
-          <!-- <div class="image fit"> -->
-          <%#= link_to image_tag(Sport.third.attachments.last.file.url(:vertical).split('/').last),
-          sport_path(Sport.third) %>
-          <!-- </div> -->
-          <% @sports.each do |sport| %>
-          <div class="image fit">
-            <!-- <a href="detail1.html"><%#= image_tag "pic03.jpg" %></a> -->
-            <%# image_style = sport.id%2 == 0 ? :horizontal : :vertical %>
-            <%= link_to image_tag(sport.attachments.last.file.url(:vertical).split('/').last), sport_path(sport) %>
-          </div>
-          <% end %>
-<!--         <div class="image fit">
-          <a href="detail1.html"><%#= image_tag "pic04.jpg" %></a>
-        </div> -->
-
+<div class="container">
+  <div class="row">
+    <% @sports.each do |sport| %>
+    <div class="col-lg-3 col-md-4 col-sm-6 custom-img-block">
+      <div class="image fit">
+        <%#= link_to image_tag(sport.attachments.last.file.url(:horizontal).split('/').last), sport_path(sport), class: 'thumbnail'%>
+        <!-- , class: 'thumbnail' -->
+        <!-- , class: 'img-rounded' -->
+        <%= link_to sport_path(sport), class: 'thumbnail' do %>
+          <%= image_tag sport.attachments.last.file.url(:horizontal).split('/').last
+           %>
+          <h1 class="text-center custom-text-color font-bold text-capitalize"><%= sport.name%></h1>
+        <% end %>
       </div>
     </div>
+    <% end %>
   </div>
-<!-- </div>-->
+</div>

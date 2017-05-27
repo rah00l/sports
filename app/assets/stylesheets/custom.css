@@ -1660,3 +1660,19 @@
 	.spacer-at-right {
     margin-right: 5px; /* define margin as you see fit */
 	}
+
+	.navbar-brand {
+    float: left;
+    height: 50px;
+    padding: 15px 15px;
+    font-size: 28px;
+    line-height: 20px;
+		font-weight: bold;
+	}
+
+	.navbar-default .navbar-brand {
+    color: #e74c3c;
+	}
+	.custom-img-block .image:hover img {
+		-webkit-filter: brightness(130%);
+	}
