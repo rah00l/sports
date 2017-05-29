@@ -1,6 +1,6 @@
-$('#sports').append("<%= j render 'sports/sport', sports: @sports %>");
-<% if @sports.next_page %>
-$('.pagination').replaceWith('<%= j will_paginate @sports %>');
+$('#countries').append("<%= j render 'countries', country: @countries %>");
+<% if @countries.next_page %>
+$('.pagination').replaceWith('<%= j will_paginate @countries %>');
 <% else %>
 $(window).off('scroll');
 $('.pagination').remove();

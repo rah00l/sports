@@ -6,7 +6,7 @@ class CountriesController < ApplicationController
   # GET /countries.json
   def index
     # @countries = Country.all
-    @countries = Country.includes(:sports).order(:name)#.page(params[:page]).per_page(20)
+    @countries = Country.includes(:sports, :attachment).order(:name).page(params[:page]).per_page(50)
     @page_title = "Sports by country"
     respond_to do |format|
       format.html

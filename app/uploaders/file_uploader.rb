@@ -33,30 +33,35 @@ class FileUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
-  version :main do
+  version :main, if: :is_sport? do
     process :resize_to_fill => [1019, 510]
     process :optimize
   end
 
-  version :horizontal do
+  version :horizontal, if: :is_sport? do
     process :resize_to_fill => [800, 533]
     process :optimize
   end
 
-  version :vertical do
+  version :vertical, if: :is_sport? do
     process :resize_to_fill => [533, 800]
     process :optimize
   end
 
-  version :thumb do
+  version :thumb, if: :is_sport? do
     process :resize_to_fit => [270, 170]
     process :optimize
   end
 
-  version :medium do
+  version :medium , if: :is_sport?do
     process :resize_to_fit => [300, 300]
     process :optimize
   end
+
+  version :flag, if: :is_country? do
+    process :resize_to_fit => [105, 30]
+    process :optimize
+  end 
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
@@ -69,5 +74,12 @@ class FileUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
+  protected
+  def is_sport?(img)
+    img.content_type.include?('image') && model.attachable_type == 'Sport'
+  end
 
+  def is_country?(img)
+    img.content_type.include?('image') && model.attachable_type == 'Country'
+  end
 end

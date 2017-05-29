@@ -1,0 +1,14 @@
+<div class="row">
+  <% @countries.each do |country|%>
+  <% if country.attachment.present? %>
+  <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
+    <div class="custoDiv">
+      <%= link_to country_path(country) do %>
+      <%= image_tag country.attachment.file.url(:flag).split('/').last if (country.attachment && country.attachment.file) %>
+      <h1 class="custom-text-color font-bold text-capitalize"><%= country.name %></h1>
+      <% end %>
+    </div>
+  </div>
+  <% end %>
+  <% end %>
+</div>

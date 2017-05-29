@@ -1676,3 +1676,7 @@
 	.custom-img-block .image:hover img {
 		-webkit-filter: brightness(130%);
 	}
+	.custoDiv {
+		margin: 3px;
+		min-height: 100px;
+	}
