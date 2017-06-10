@@ -7,7 +7,7 @@
         <!-- , class: 'thumbnail' -->
         <!-- , class: 'img-rounded' -->
         <%= link_to sport_path(sport), class: 'thumbnail' do %>
-          <%= image_tag sport.attachments.last.file.url(:horizontal).split('/').last
+          <%= image_tag sport.attachments.last.file.url(:horizontal).split('/').last if sport.attachments.present?
            %>
           <h1 class="text-center custom-text-color font-bold text-capitalize"><%= sport.name%></h1>
         <% end %>

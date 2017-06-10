@@ -4,7 +4,7 @@
 	<% @sports.each do |sport| %>
 	<div class="row">
 	  <div class="col-md-3">
-	    <%= link_to image_tag(sport.attachments.last.file.url(:thumb).split('/').last), sport_path(sport) %>
+	    <%= link_to image_tag(sport.attachments.last.file.url(:thumb).split('/').last), sport_path(sport) if sport.attachments.present? %>
 	  </div>
 
 	  <div class="col-md-1"></div>
