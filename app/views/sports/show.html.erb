@@ -61,84 +61,26 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-12">
-					<h1 class="custom-text-color font-bold">Most popular players</h1>
-						<div class="well">
-							<div id="myCarousel" class="carousel slide">
+					<div id="disqus_thread"></div>
+					<script>
 
-								<!-- Carousel items -->
-								<div class="carousel-inner">
-									<div class="item active">
-										<div class="row">
-											<div class="col-sm-3">
-												<!-- <a href="#x"><img src="http://placehold.it/500x500" alt="Image" class="img-responsive"></a> -->
-												<%= link_to image_tag '500.png', class: 'img-responsive' %>
-											</div>
-											<div class="col-sm-3">
-												<!-- <a href="#x"><img src="http://placehold.it/500x500" alt="Image" class="img-responsive"></a> -->
-												<%= link_to image_tag '500.png', class: 'img-responsive' %>
-											</div>
-											<div class="col-sm-3">
-												<!-- <a href="#x"><img src="http://placehold.it/500x500" alt="Image" class="img-responsive"></a> -->
-												<%= link_to image_tag '500.png', class: 'img-responsive' %>
-											</div>
-											<div class="col-sm-3">
-												<!-- <a href="#x"><img src="http://placehold.it/500x500" alt="Image" class="img-responsive"></a> -->
-											</div>
-										</div>
-										<!--/row-->
-									</div>
-									<!--/item-->
-									<div class="item">
-										<div class="row">
-											<div class="col-sm-3">
-												<!-- <a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" class="img-responsive"></a> -->
-												<%= link_to image_tag('250.png', class: 'img-responsive'), class: 'thumbnail' %>
-											</div>
-											<div class="col-sm-3">
-												<!-- <a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" class="img-responsive"></a> -->
-												<%= link_to image_tag('250.png', class: 'img-responsive'), class: 'thumbnail' %>
-											</div>
-											<div class="col-sm-3">
-												<!-- <a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" class="img-responsive"></a> -->
-												<%= link_to image_tag('250.png', class: 'img-responsive'), class: 'thumbnail' %>
-											</div>
-											<div class="col-sm-3">
-												<!-- <a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" class="img-responsive"></a> -->
-											</div>
-										</div>
-										<!--/row-->
-									</div>
-									<!--/item-->
-									<div class="item">
-										<div class="row">
-											<div class="col-sm-3">
-												<!-- <a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" class="img-responsive"></a> -->
-												<%= link_to image_tag('250.png', class: 'img-responsive'), class: 'thumbnail' %>
-											</div>
-											<div class="col-sm-3">
-												<!-- <a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" class="img-responsive"></a> -->
-												<%= link_to image_tag('250.png', class: 'img-responsive'), class: 'thumbnail' %>
-											</div>
-											<div class="col-sm-3">
-												<!-- <a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" class="img-responsive"></a> -->
-											</div>
-											<div class="col-sm-3">
-												<!-- <a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" class="img-responsive"></a> -->
-											</div>
-										</div>
-										<!--/row-->
-									</div>
-									<!--/item-->
-								</div>
-								<!--/carousel-inner--> <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
-
-								<a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
-							</div>
-							<!--/myCarousel-->
-						</div>
-						<!--/well-->
-					</div>
+					/**
+					*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+					*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+					/*
+					var disqus_config = function () {
+					this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+					this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+					};
+					*/
+					(function() { // DON'T EDIT BELOW THIS LINE
+					var d = document, s = d.createElement('script');
+					s.src = 'https://moreaboutsports-com.disqus.com/embed.js';
+					s.setAttribute('data-timestamp', +new Date());
+					(d.head || d.body).appendChild(s);
+					})();
+					</script>
+					<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 				</div>
 			</div>
 			<% if @prev.present? %>
