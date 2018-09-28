@@ -15,7 +15,7 @@ namespace :sports do
 				options =  { attachable_id: equipment.id, attachable_type: equipment.class, file: equipment_image.open }
 				begin
 					equipment.attachments = [ Attachment.create(options) ]
-					puts "Attachment added successfully for '#{equipment_name}' Equipment!!"
+					# puts "Attachment added successfully for '#{equipment_name}' Equipment!!"
 				rescue => error
 					# puts "Error migrating Attachment: #{error}"
 				end
