@@ -6,7 +6,6 @@ def optimize
           c.quality "50"
           c.depth "8"
           c.interlace "plane"
-          puts "------------------"*18
       end
       img
   end

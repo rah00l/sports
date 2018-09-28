@@ -61,15 +61,15 @@ class Sport < ApplicationRecord
 			items = 'Poly' if name.eql?('table tennis ping pong')
 			items = 'flying disc' if name.eql?('Ultimate Frisbee')
 			items_string = items.include?(",") ? items.split(",") :  items.split("\n")
-			puts "**********************************************************"
-			puts items_string
-			puts "**********************************************************"
-			self.equipment = items_string.map do |n|
+			# puts "**********************************************************"
+			# puts items_string
+			# puts "**********************************************************"
+			self.equipment = items_string.reject(&:blank?).map do |n|
 				equipment_name = n.squish.downcase.tr(" ","_")
 				begin
-					puts '-----------------------------------------------------------------------'
-					puts equipment_name
-					puts '-----------------------------------------------------------------------'
+					# puts '-----------------------------------------------------------------------'
+					# puts equipment_name
+					# puts '-----------------------------------------------------------------------'
 					wiki_name, extractor = '', ''
 					exceptional_soprts = ['Handball', 'Ice Hockey', 'Korfball', 'Netball','Padel', 
 						'Platform Tennis', 'Polo', 'Racquetball', 'Rounders',
@@ -78,10 +78,10 @@ class Sport < ApplicationRecord
 						wiki_name, extractor = if !exceptional_soprts.include?(name)
 							get_equipment_name(equipment_name)
 						end
-						p "080808080808080808080808080808080808"
-						puts wiki_name
-						puts extractor
-						p "080808080808080808080808080808080808"
+						# p "080808080808080808080808080808080808"
+						# puts wiki_name
+						# puts extractor
+						# p "080808080808080808080808080808080808"
 						doc = Nokogiri::HTML(open("https://en.wikipedia.org/wiki/#{wiki_name}")) if wiki_name.present?
 			# if Nokogiri::HTML(open("https://en.wikipedia.org/wiki/#{equipment_name}")).present?
 			# 	doc = Nokogiri::HTML(open("https://en.wikipedia.org/wiki/#{wiki_name}"))
@@ -90,12 +90,12 @@ class Sport < ApplicationRecord
 			# 	doc = Nokogiri::HTML(open("https://en.wikipedia.org/wiki/#{wiki_name}"))
 			# end
 		rescue => e
-			puts e
+			# puts e
 		end
 		if doc.present?
 			desc = doc.css(extractor).text
 		else
-			puts "For #{equipment_name} -- #{wiki_name}-- and extractor is #{extractor}-- #{wiki_name} does not present"
+			# puts "For #{equipment_name} -- #{wiki_name}-- and extractor is #{extractor}-- #{wiki_name} does not present"
 		end
 		Equipment.where(name: n.strip, description: desc).first_or_create!
 	end
@@ -103,11 +103,11 @@ class Sport < ApplicationRecord
 	end
 
 	def info_box_details=(info_box_hash)
-		unless info_box_hash.nil?
+		if info_box_hash.present?
 			begin
 				InfoBox.where(info_box_hash).first_or_create!
 			rescue => e
-				puts e
+				# puts e
 			end
 		end
 	end
