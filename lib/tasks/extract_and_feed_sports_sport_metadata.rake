@@ -2,18 +2,21 @@
 namespace :sports do
 	desc "Extract and feed sports metadata"
 	task :extract_and_feed_metadata => :environment do
-		Sport.pluck("name").each do |sport_name|
+		sports = Sport.pluck("name")
+		progress_bar = ProgressBar.new(sports.size)
+		sports.each do |sport_name|
+				progress_bar.increment!
 				# sport_name = 'aussie rules football' # sport_name = 'badminton' # sport_name = "bar billiards" 
 				#sport_name = "baseball"sport_name = 'basketball' sport_name = "American Football"
 				# sport_name = "archery" sport_name = "arm wrestling"
 				# sport_name = "bar billiards"
 				# sport_name = "Table tennis ping pong"
-				puts "Sport name is #{sport_name}..........."
+				# puts "Sport name is #{sport_name}..........."
 				wiki_sport = get_sport_name_wiki(sport_name)
-				puts wiki_sport
+				# puts wiki_sport
 				wiki_sport = sport_name.downcase.tr(' ', '_') unless (sport_name.eql?('Padel') || sport_name.eql?('Squash') || sport_name.eql?('Table tennis ping pong') || sport_name.eql?('Hockey field') || sport_name.eql?("Kin-ball") || sport_name.eql?('Mma mixed martial arts'))
-				puts wiki_sport
-				puts "https://en.wikipedia.org/wiki/#{wiki_sport}"
+				# puts wiki_sport
+				# puts "https://en.wikipedia.org/wiki/#{wiki_sport}"
 				doc = Nokogiri::HTML(open("https://en.wikipedia.org/wiki/#{wiki_sport}"))
 				table = doc.css('table.vcard').first
 				if table.present?
@@ -24,8 +27,8 @@ namespace :sports do
 						row_values = row.css('td').map(&:text)
 						[row_name, *row_values]
 					end
-					p column_names
-					p text_all_rows
+					# p column_names
+					# p text_all_rows
 					all_rows = []
 
 					text_all_rows.each {|row| all_rows << row if row.size == 2}
@@ -33,14 +36,14 @@ namespace :sports do
 					new_all_rows_hash = {}
 
 					all_rows_hash.to_hash.each_pair { |k,v| new_all_rows_hash.merge!({k.squish.downcase.tr(" ","_") => v}) }
-					puts "......."*7
+					# puts "......."*7
 
-					puts new_all_rows_hash.symbolize_keys
+					# puts new_all_rows_hash.symbolize_keys
 
 					if new_all_rows_hash.respond_to?(:keys)
 						sport = Sport.find_by(name: sport_name)
 						info_box_hash = new_all_rows_hash.symbolize_keys.except(:nicknames, :registered_players, :clubs, 
-							:contact, :type, :equipment, :venue, :country_or_region, :paralympic, :created)
+							:contact, :type, :equipment, :venue, :country_or_region, :paralympic, :created, :glossary, :world_games)
 						sport.info_box.destroy if sport.info_box.present?
 						sport.info_box_details=(info_box_hash.merge!({sport_id: sport.id}))
 
@@ -48,7 +51,7 @@ namespace :sports do
 						sport.equipment_list=(new_all_rows_hash.symbolize_keys[:equipment]) if sport.present?
 					end
 				else 
-					puts "No vcard found for '#{sport_name}'"
+					# puts "No vcard found for '#{sport_name}'"
 				end
 			end
 		end

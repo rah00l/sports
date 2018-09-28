@@ -21,13 +21,15 @@ namespace :sports do
 	common_sports = sports_by_country.map(&:downcase) & sports_list_by_country.map(&:downcase)
 	# puts "Deleting all sport-countries mapping ....!"
 	# CountrywiseSport.delete_all
+	progress_bar = ProgressBar.new(common_sports.size)
 	common_sports.each do |sport_by_country|
+		progress_bar.increment!
 
 	begin
-		puts sport_by_country
+		# puts sport_by_country
 		sport_by_country_wiki_page = Nokogiri::HTML(open("https://en.wikipedia.org/wiki/Category:#{sport_by_country.downcase.tr(' ', '_')}"))
 	rescue => e
-		puts e
+		# puts e
 	end
 
 	css_selectors = '.mw-category-group+ .mw-category-group .CategoryTreeLabelCategory'
@@ -43,24 +45,24 @@ namespace :sports do
 
 			sport_name = 	sport_by_country.chomp(' by country')
 			# sport_name = get_correct_country_name(sport_name)
-			p "#{sport_name} played in following countries"
+			# p "#{sport_name} played in following countries"
 			countries = list_of_countries.map!(&:downcase).each {|country| country.gsub!("#{sport_name} in ", '') }
 			# p countries
 			countries.collect! { |country| country = country_name(country) }
 			# p countries
 			countries.each {|country| Country.find_or_create_by name: country }
-			p countries.count
+			# p countries.count
 			sport = Sport.find_by(name: sport_name)
 			# p "#{sport_name} ------------ #{sport.name}" if sport.present?
 			countries_list = Country.where(name: countries)
-			p countries_list.count
-			p "Before attach"
-			p sport.countries.count if sport.present?
+			# p countries_list.count
+			# p "Before attach"
+			# p sport.countries.count if sport.present?
 			sport.countries.destroy_all if sport.present?
 			# countries_list.each {|country| CountrywiseSport.find_or_create_by country_id: country.id, sport_id: sport.id } if sport.present?
 			sport.countries = countries_list if sport.present?
 			# sport.country_ids=(countries_list.collect(&:id)) if sport.present?
-			p "After attach"
+			# p "After attach"
 			sport.countries.count if sport.present?
 		end
 	end

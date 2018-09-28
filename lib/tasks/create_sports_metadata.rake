@@ -3,29 +3,30 @@ namespace :sports do
 	task :create_metadata => :environment do
 		## All Go cheat script ###
 		Sport.destroy_all
-		puts '....'*100
-		puts 'Destroyed all earlier sports..'
+		#puts '....'*100
+		#puts 'Destroyed all earlier sports..'
 		
 		all_sports = Nokogiri::HTML(open("http://www.rulesofsport.com"))
 		sports_list = all_sports.search(".mod-articles-category-title").children.map(&:text).compact.collect(&:strip)
 		# sports_list = ['TABLE TENNIS (PING PONG)']
+		progress_bar = ProgressBar.new(sports_list.size)
 		sports_list.each do |sport|
 		# sport = 'Kin-Ball'
 			begin
-				puts sport
+				#puts sport
 				sport_wiki = get_sport_name_wiki(sport)
 				# byebug
-				puts sport_wiki
+				#puts sport_wiki
 				sport_wiki = 'Mixed martial arts' if sport_wiki.eql?('MMA (Mixed Martial Arts)')
 				sport_wiki = 'Table tennis' if sport_wiki.eql?('Table Tennis (Ping Pong)')
 				sport_wiki = sport_wiki.eql?('Kin-Ball') ? sport_wiki : sport_wiki.downcase.tr(' ', '_')
-				puts '---------'*5
-				puts sport_wiki
-				puts '---------'*5
-				puts "https://en.wikipedia.org/wiki/#{sport_wiki}"
+				#puts '---------'*5
+				#puts sport_wiki
+				#puts '---------'*5
+				#puts "https://en.wikipedia.org/wiki/#{sport_wiki}"
 				wiki_page = Nokogiri::HTML(open("https://en.wikipedia.org/wiki/#{sport_wiki}"))
 			rescue => e
-				puts e
+				#puts e
 			end
 
 			css_selector = basic_info_css_selector(sport_wiki)
@@ -39,15 +40,15 @@ namespace :sports do
 			# pool && rugby - Extra exceptional cases
 			first_palyed = wiki_page.css('.vcard tr:nth-child(3) td').children.map(&:text).compact.collect(&:strip)
 			sport_name = get_proper_sport_name(sport)
-			puts sport_name
+			#puts sport_name
 			# sport = 'Hockey Field' if sport.eql?('Field Hockey')
 
 			# Extract rules of sport
 			begin
-				puts "http://www.rulesofsport.com/sports/#{sport_name.downcase.tr(' ', '-')}.html"
+				#puts "http://www.rulesofsport.com/sports/#{sport_name.downcase.tr(' ', '-')}.html"
 				rules_page = Nokogiri::HTML(open("http://www.rulesofsport.com/sports/#{sport_name.downcase.tr(' ', '-')}.html"))
 			rescue => e
-				puts e
+				#puts e
 			end
 
 			history = rules_page.css('p:nth-child(5) , p:nth-child(4) , .itemMainImage+ p').text
@@ -56,12 +57,16 @@ namespace :sports do
 
 			rules = rules_page.css('h2+ ul').present? ? rules_page.css('h2+ ul') :  rules_page.css('#content li')
 			rules.search('li').each { |rule| Rule.create name: "Rule of sport ", description: rule.text, sport_id: sprt.id }
-			puts "**#{sport_name}**"
-			puts ".."*10
+	# TODO
+	# athletics have specific rule.
+	# Each individual discipline has its own specific set of rules and competitors are expected to abide by these to ensure that the competition is fair.
+			#puts "**#{sport_name}**"
+			#puts ".."*10
+			progress_bar.increment!
 		end
 		
-		# puts "Added #{sports_list.size} entries for sports and it's related inforation.."
-		puts '....'*100
+		# #puts "Added #{sports_list.size} entries for sports and it's related inforation.."
+		#puts '....'*100
 	end
 end
 
